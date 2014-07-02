@@ -1,8 +1,8 @@
  Uploading
-How are you getting this data?
- cluster analysis
-Log in Local Database - SQLite 3
-database types:
+* How are you getting this data?
+* cluster analysis
+*Log in Local Database - SQLite 3
+* database types:
 multi
 frequency
 times
