@@ -2,7 +2,15 @@ import sqlite3
 conn = sqlite3.connect('database.db')
 c = conn.cursor()
 #setting up all of the tables
-#clusters
-c.execute('''CREATE TABLE clusters(id real, contents real)''')
+#check for cluster
+try:
+    c.execute(''' SELECT * FROM  clusters''')
+except sqlite3.OperationalError:
+    #cluster
+    c.execute('''CREATE TABLE clusters(id real, contents real)''')
+#test for fileMap
+try:
+    c.execute(''' SELECT * FROM  fileMap''')
+except sqlite3.OperationalError:
 #files
-c.execute('''CREATE TABLE fileMap(path text, cluster real, size text)''')
+    c.execute('''CREATE TABLE fileMap(path text, cluster real, size text)''')
