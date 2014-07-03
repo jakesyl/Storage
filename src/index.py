@@ -4,12 +4,9 @@ Jake Sylvestre
 '''
 import os
 
-print os.path.expanduser('~')
-
 for root, dirs, files in os.walk(os.path.expanduser('~')):
-	print root, dirs, files
-	print " "
-
+	#print root #just prints the directory it's in
+ 	
 
 ''' 
 Sudocode:
@@ -20,25 +17,17 @@ Using os.walk design a for loop that starts at the root and crawls through every
 More Details:
 Dir: ~/cortexstorage/src
 
-
-Other code:
-1:
-
+other code:
 import os
 
 print os.path.expanduser('~')
 
-for root, dirs, files in os.walk(os.path.expanduser('~')):
+for root, dirs, files in os.walk(os.path.expanduser('~')):# for every root in 
 	print root, dirs, files
+	print " "
 
-
-2:
-
-print "This is using getsize to see how much every file consumes"
-print "---------------"
-from os.path import join, getsize
-for root, dirs, files in os.walk('~'):
-    print root, "consumes",
-    print sum([getsize(join(root, name)) for name in files]),
-    print "bytes in", len(files), "non-directory files"
+Explanation for above code:
+root :	Prints out directories only from what you specified
+dirs :	Prints out sub-directories from root. 
+files:  Prints out all files from root and directories
 '''
