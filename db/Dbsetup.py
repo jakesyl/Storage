@@ -16,6 +16,5 @@ try:
     c.execute(''' SELECT * FROM  fileMap''')
 except sqlite3.OperationalError:
 #cluster creation
-c.execute('''CREATE TABLE clusters(id real, contents real)''')
 #files
     c.execute('''CREATE TABLE fileMap(path text, cluster real, size text)''')
