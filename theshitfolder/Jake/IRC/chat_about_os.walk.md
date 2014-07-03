@@ -61,3 +61,33 @@ Status #pythonX #wordpressX ##securityX ##javascriptX #jqueryX #wikipedia-enX
 [21:37] == sarodj_ [~pr0nstar@unaffiliated/sarodj] has quit [Ping timeout: 260 seconds]
 [21:37] == jpadilla [~jpadilla@cvx-ppp-66-50-145-104.coqui.net] has joined #python
 [21:38] <nedbat> jakesyl: sure.  os.path.expanduser() will help too
+[21:36] <nedbat> jakesyl: http://pymotw.com/2/os/index.html#walking-a-directory-tree
+[21:36] == csotelo [~csotelo@190.41.210.210] has quit [Remote host closed the connection]
+[21:36] == Bryson [~Bryson@184.2.174.149] has joined #python
+[21:36] == sarodj [~pr0nstar@unaffiliated/sarodj] has joined #python
+[21:37] <jakesyl> so i can do this from ~ out
+[21:37] == sarodj_ [~pr0nstar@unaffiliated/sarodj] has quit [Ping timeout: 260 seconds]
+[21:37] == jpadilla [~jpadilla@cvx-ppp-66-50-145-104.coqui.net] has joined #python
+[21:38] == jpadilla [~jpadilla@cvx-ppp-66-50-145-104.coqui.net] has quit [Client Quit]
+[21:38] <nedbat> jakesyl: sure.  os.path.expanduser() will help too
+[21:38] == l3lu3 [~l3lu3@unaffiliated/l3lu3] has left #python []
+[21:38] <wescotte> Does Facebook no longer let you sync contacts in 4.4.2?
+[21:39] == silphium [~jrjohnsto@173-81-201-66.chstcmtk02.res.dyn.suddenlink.net] has quit [Quit: Leaving.]
+[21:39] == Bryson [~Bryson@184.2.174.149] has quit [Client Quit]
+[21:40] == Wild_Cat [~Max@206-248-128-92.dsl.teksavvy.com] has joined #python
+[21:40] == crc32 [crc32@nat/rackspace/x-uadvuquzcqolxljc] has quit [Quit: Textual IRC Client: www.textualapp.com]
+[21:40] == zacts- [~AndChat41@freebsd/geek/zacts] has joined #python
+[21:40] == sboudrias [~sboudrias@2601:9:3480:11b9:88b3:b4af:9dfc:8540] has quit [Ping timeout: 240 seconds]
+[21:41] == ekinmur [~ekinmur@c-98-204-177-40.hsd1.va.comcast.net] has joined #python
+[21:41] == nxiety [~nxiety@c-174-49-85-181.hsd1.ga.comcast.net] has quit [Quit: WeeChat 0.4.3]
+[21:41] == darkbasic [~quassel@niko.linuxsystems.it] has quit [Remote host closed the connection]
+[21:41] == comand [~comand@2620:79:0:164:1ec1:deff:fe33:c08d] has quit [Quit: Bye]
+[21:41] <nedbat> wescotte: is that a python quesion?
+[21:42] <jakesyl> nedbat: are there any diffs between the two
+[21:42] <nedbat> jakesyl: two what?
+[21:42] == darkbasic [~quassel@niko.linuxsystems.it] has joined #python
+[21:42] <jakesyl> os.walk and os.expanduser()
+[21:42] <nedbat> jakesyl: os.walk and os.path.expanduser do completely different things
+[21:43] <jakesyl> which are, sorry I haven't had a chance to read through each one yet
+[21:43] <nedbat> jakesyl: i'm not in a hurry, take your time :)
+[21:43] == ePirat [~ePirat@unaffiliated/epirat] has quit [Quit: Palaver!]
