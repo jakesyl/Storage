@@ -16,9 +16,9 @@ try:
     c.execute(''' SELECT * FROM  fileMap''')
 except sqlite3.OperationalError:
 #files
-    c.execute('''CREATE TABLE fileMap(path text, cluster real, size text)''')
+    c.execute('''CREATE TABLE fileMap(path text, size text)''')
 try:
     c.execute(''' SELECT * FROM  scan''')
 except sqlite3.OperationalError:
 #files
-    c.execute('''CREATE TABLE scan(path text, accesstime text, clusterid real)''')
+    c.execute('''CREATE TABLE scan(path text, accesstime text, cluster int)''')
