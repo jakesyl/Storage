@@ -143,3 +143,41 @@ Status #pythonX #wordpressX ##securityX ##javascriptX #jqueryX #wikipedia-enX
 [22:07] <VooDooNOFX> Ok, then you need to use os.walk(os.path.expanduser('~'))
 [22:08] == thelinuxkid [~thelinuxk@99-118-212-48.lightspeed.irvnca.sbcglobal.net] has quit [Client Quit]
 [22:08] == moted [~anonymous@c-71-193-182-37.hsd1.wa.comcast.net] has quit [Quit: moted]
+<VooDooNOFX> jakesyl: see http://ideone.com/Iogtu9 for an example.
+[22:09] == mlncn-agaric [~mlncn@c-71-192-161-31.hsd1.nh.comcast.net] has quit [Ping timeout: 240 seconds]
+[22:09] == Vivekananda_y510 [~vvikramjh@c-68-49-141-134.hsd1.md.comcast.net] has quit [Ping timeout: 244 seconds]
+[22:09] == Alina-malina [Alina-mali@unaffiliated/alina-malina] has quit [Read error: Connection reset by peer]
+[22:10] == supernaut [~supernaut@unaffiliated/supernaut] has joined #python
+[22:10] == Narsilou [~nicolas@APuteaux-651-1-292-246.w82-120.abo.wanadoo.fr] has quit [Ping timeout: 240 seconds]
+[22:10] == sboudrias [~sboudrias@2601:9:3480:11b9:7425:29ac:5f1c:7e44] has quit [Ping timeout: 240 seconds]
+[22:11] == Alina-malina [Alina-mali@unaffiliated/alina-malina] has joined #python
+[22:11] == redShadow [~redShadow@unaffiliated/redshadow] has quit [Ping timeout: 240 seconds]
+[22:11] == sboudrias [~sboudrias@2601:9:3480:11b9:990b:975d:fdc1:baa1] has joined #python
+[22:12] == al1o [~al1o@180.249.175.9] has joined #python
+[22:12] == al1o [~al1o@180.249.175.9] has quit [Max SendQ exceeded]
+[22:13] == al1o [~al1o@180.249.175.9] has joined #python
+[22:14] == cparlette [~chris.par@pool-96-241-216-63.washdc.fios.verizon.net] has quit [Ping timeout: 255 seconds]
+[22:14] == bwreilly [~bwreilly@c-71-231-109-148.hsd1.wa.comcast.net] has joined #python
+[22:15] == batchfile [~bulldog@108-67-71-127.lightspeed.sntcca.sbcglobal.net] has joined #python
+[22:15] == Irrelium [~Irrelium@71.19.153.241] has joined #python
+[22:15] == mguillech [~mguillech@unaffiliated/mguillech] has joined #python
+[22:15] <jakesyl> voodoonofx it's giving me an error
+[22:15] <batchfile> supz
+[22:15] <jakesyl> hey batch
+[22:16] == xsteadfastx [~marv@2001:a60:f000:81a2::1] has quit [Ping timeout: 240 seconds]
+[22:16] <VooDooNOFX> jakesyl: don't tell me, show me.
+[22:16] == sboudrias [~sboudrias@2601:9:3480:11b9:990b:975d:fdc1:baa1] has quit [Ping timeout: 240 seconds]
+[22:16] <jakesyl> okay as you can see here: http://codepad.org/8H5YJKPj running the code, in the exact way you gave me, locally or on ide one gives me an hour
+[22:17] <jakesyl> errror*
+[22:17] == Maverous [~Ryan@rrcs-50-75-130-226.nys.biz.rr.com] has quit [Read error: Connection reset by peer]
+[22:17] <VooDooNOFX> jakesyl: I don't see an error on ideone
+[22:17] == xsteadfastx [~marv@ppp-88-217-108-155.dynamic.mnet-online.de] has joined #python
+[22:17] == dfdx2 [~dfdx2@c-69-255-26-165.hsd1.va.comcast.net] has joined #python
+[22:18] <jakesyl> oh 2.7 vs 3?
+[22:18] == dray3 [~daaray@cpe-173-095-178-019.nc.res.rr.com] has quit [Ping timeout: 240 seconds]
+[22:18] == No such nick/channel: Narsilou
+[22:18] == End of WHOIS
+[22:19] <VooDooNOFX> I dunno. I still haven't seen your error...
+[22:19] == luisalonsocn [~luisalons@190.42.49.19] has quit [Quit: Leaving]
+[22:20] == sboudrias [~sboudrias@c-50-185-172-207.hsd1.ca.comcast.net] has joined #python
+[22:20] <jakesyl> okay issue solved difference bettween 2.7 and 3
