@@ -21,4 +21,4 @@ try:
     c.execute(''' SELECT * FROM  scan''')
 except sqlite3.OperationalError:
 #files
-    c.execute('''CREATE TABLE scan(path text, accesstime text, cluster int)''')
+    c.execute('''CREATE TABLE scan(path text, accessDate text, accessTime text, cluster int)''')
