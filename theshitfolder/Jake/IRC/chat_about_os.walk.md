@@ -114,3 +114,32 @@ Status #pythonX #wordpressX ##securityX ##javascriptX #jqueryX #wikipedia-enX
 [21:50] == timemage [~user@unaffiliated/timemage] has joined #python
 [21:50] == sboudrias [~sboudrias@2601:9:3480:11b9:e5b3:64d6:d04e:a323] has quit [Ping timeout: 240 seconds]
 [21:50] <jakesyl> okay I think I've got it thanks simpson
+<jakesyl> hey nedbat, using os.walk and os.path do you know how i specify root, is it ~
+[22:02] == theshit123 [~theshit@217.217.50.206.dyn.user.ono.com] has quit [Quit: Leaving]
+[22:02] == sboudrias [~sboudrias@c-50-185-172-207.hsd1.ca.comcast.net] has quit [Ping timeout: 248 seconds]
+[22:03] == dogeydogey [~dogeydoge@ip98-169-130-91.dc.dc.cox.net] has quit [Quit: Bye]
+[22:03] == tyll [~till@fedora/tyll] has quit [Ping timeout: 272 seconds]
+[22:03] == xelra [~xelra@gateway/tor-sasl/xelra] has quit [Quit: Leaving]
+[22:04] <VooDooNOFX> jakesyl: what do you mean root? you mean root of your file system?
+[22:04] == ustunozgur [~ustunozgu@78.171.81.205] has quit [Ping timeout: 255 seconds]
+[22:04] <jakesyl> yes voodooNOFX
+[22:04] == al1o [~al1o@180.249.175.9] has joined #python
+[22:04] <VooDooNOFX> jakesyl: because tilde means user home folder.
+[22:04] == al1o [~al1o@180.249.175.9] has quit [Max SendQ exceeded]
+[22:05] <jakesyl> so when i specifly it i should say for root, dirs, files in os.walk('tilde'):
+[22:05] == tyll [~till@fedora/tyll] has joined #python
+[22:05] == al1o [~al1o@180.249.175.9] has joined #python
+[22:05] == al1o [~al1o@180.249.175.9] has quit [Max SendQ exceeded]
+[22:05] <VooDooNOFX> Sorry, which folder are you trying to walk? the real root of your hard drive, or the root of your user's folder?
+[22:05] == windyhouser [~windyhous@c-69-138-47-77.hsd1.ms.comcast.net] has quit [Quit: My MacBook Pro has gone to sleep. ZZZzzz…]
+[22:06] <jakesyl> root of users folder, I don't need any system files, so basically ~/
+[22:06] == al1o [~al1o@180.249.175.9] has joined #python
+[22:06] == sboudrias [~sboudrias@2601:9:3480:11b9:7425:29ac:5f1c:7e44] has joined #python
+[22:06] == al1o [~al1o@180.249.175.9] has quit [Max SendQ exceeded]
+[22:06] == thelinuxkid [~thelinuxk@99-118-212-48.lightspeed.irvnca.sbcglobal.net] has joined #python
+[22:07] == eeerik [~eeerik@145-118-118-99.fttx.bbned.nl] has quit [Quit: Computer has gone to sleep.]
+[22:07] == al1o [~al1o@180.249.175.9] has joined #python
+[22:07] == al1o [~al1o@180.249.175.9] has quit [Max SendQ exceeded]
+[22:07] <VooDooNOFX> Ok, then you need to use os.walk(os.path.expanduser('~'))
+[22:08] == thelinuxkid [~thelinuxk@99-118-212-48.lightspeed.irvnca.sbcglobal.net] has quit [Client Quit]
+[22:08] == moted [~anonymous@c-71-193-182-37.hsd1.wa.comcast.net] has quit [Quit: moted]
