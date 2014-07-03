@@ -91,3 +91,26 @@ Status #pythonX #wordpressX ##securityX ##javascriptX #jqueryX #wikipedia-enX
 [21:43] <jakesyl> which are, sorry I haven't had a chance to read through each one yet
 [21:43] <nedbat> jakesyl: i'm not in a hurry, take your time :)
 [21:43] == ePirat [~ePirat@unaffiliated/epirat] has quit [Quit: Palaver!]
+[21:43] == SandCat [~chatzilla@CPE-72-128-88-241.wi.res.rr.com] has joined #python
+[21:44] == Kamaris [~Kamaris@75-1-61-184.lightspeed.snantx.sbcglobal.net] has joined #python
+[21:45] == nedbat [~nedbat@python/psf/nedbat] has quit []
+[21:45] == sboudrias [~sboudrias@2601:9:3480:11b9:e5b3:64d6:d04e:a323] has joined #python
+[21:46] <Kamaris> i'm trying to get a multiline regex to match, with no luck. the text is multiline, with the first line blank, and the second line starting with "SAME TEXT <date>", and the third line is irrelevant. i am trying to extract the <date> . could anyone offer a suggestion on what my re.compile should be?
+[21:46] <VooDooNOFX> Kamaris: perhaps you can pastebin the original text somewhere
+[21:46] == alphapete [~alphapete@cpe-184-58-149-198.wi.res.rr.com] has joined #python
+[21:47] <jakesyl> nedbean can i use both so os.walk to generate the tree I'm going to crawl and os.expanduser() for more details about the files
+[21:47] == rezzack [~rezzack@unaffiliated/rezzack] has quit [Ping timeout: 272 seconds]
+[21:48] == mouseover [~mouseover@unaffiliated/mouseover] has joined #python
+[21:48] <simpson> jakesyl: expanduser() does one thing only: It expands representations of homedirs in path strings.
+[21:48] <simpson> jakesyl: It has nothing to do with walk().
+[21:48] == wombawomba [~wombawomb@h-144-152.a328.priv.bahnhof.se] has joined #python
+[21:48] == biergaizi has changed nick to biergaizi_AFK
+[21:49] == rustyrazorblade [~jhaddad@pool-173-60-205-186.lsanca.fios.verizon.net] has quit [Quit: rustyrazorblade]
+[21:49] == Xbert [~yaaic@cpc4-hatf7-2-0-cust554.9-3.cable.virginm.net] has quit [Ping timeout: 260 seconds]
+[21:49] == rustyrazorblade [~jhaddad@pool-173-60-205-186.lsanca.fios.verizon.net] has joined #python
+[21:49] <jakesyl> crap I was thinking of all of os.path
+[21:50] <Kamaris> VooDooNOFX: http://pastebin.com/zHivsVrJ
+[21:50] <infobob> http://bpaste.net/show/429943/ (repasted for Kamaris)
+[21:50] == timemage [~user@unaffiliated/timemage] has joined #python
+[21:50] == sboudrias [~sboudrias@2601:9:3480:11b9:e5b3:64d6:d04e:a323] has quit [Ping timeout: 240 seconds]
+[21:50] <jakesyl> okay I think I've got it thanks simpson
