@@ -14,11 +14,10 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     contents = files  #originally sub_dirs + files
     contents.sort()
     for f in contents:
-        print f + " is in " + dir_name
-        
-        c.execute('INSERT INTO scan (' + f, column2, column3,...columnN)]  
-VALUES (value1, value2, value3,...valueN);')#put something that's not retarted here
-
+        #print f + " is in " + dir_name
+        path = dir_name + '/' + f
+        c.execute('INSERT INTO scan (fpath, accessDate, accessTime, cluster)]  VALUES ('path, value2, value3,...valueN);')#put something that is not retarted here
+                  
 '''
 I'm tired and have to go to bed, here's what you need to know, first look at alex's dbsetup.py file
 it should have everything you need, insert right shit into right problems, last access is a different story, ask this is irc:
