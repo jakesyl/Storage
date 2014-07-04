@@ -181,3 +181,14 @@ Status #pythonX #wordpressX ##securityX ##javascriptX #jqueryX #wikipedia-enX
 [22:19] == luisalonsocn [~luisalons@190.42.49.19] has quit [Quit: Leaving]
 [22:20] == sboudrias [~sboudrias@c-50-185-172-207.hsd1.ca.comcast.net] has joined #python
 [22:20] <jakesyl> okay issue solved difference bettween 2.7 and 3
+[21:14] <nedbat> yoLo_: has high aspirations
+[21:14] <nedbat> oops
+[21:14] <yoLo_> thank you nedbat
+[21:14] <therealfakemoot> Yeah, aim for the stars dude
+[21:14] <nedbat> yoLo_ has high aspirations
+[21:14] == billcd [~billcd@c-68-56-27-185.hsd1.fl.comcast.net] has joined #python
+[21:14] <therealfakemoot> You can do anything. You just might have to work really hard for a long time
+[21:14] <jakesyl> hey nedbat it's you again!  how do i specify the root directory like ~ on unix
+[21:14] <nedbat> yoLo_: np. in return, you stay focused on the little things now, ok?
+[21:14] <kevlarman> Cowmoo: fun fact, indiana has 5 timezones that are mostly the same but for historical dates may differ
+[21:14] <nedbat> jakesyl: the root is /
