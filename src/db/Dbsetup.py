@@ -13,12 +13,12 @@ except sqlite3.OperationalError:
     c.execute('''CREATE TABLE clusters(id real, contents real)''')
 #test for fileMap
 try:
-    c.execute(''' SELECT * FROM  fileMap''')
+    c.execute(''' SELECT * FROM  fileMap''')#whaqt the fuck is a file map
 except sqlite3.OperationalError:
 #files
-    c.execute('''CREATE TABLE fileMap(path text, size text)''')
+    c.execute('''CREATE TABLE fileMap(fpath text, size text)''')
 try:
     c.execute(''' SELECT * FROM  scan''')
 except sqlite3.OperationalError:
 #files
-    c.execute('''CREATE TABLE scan(path text, accessDate text, accessTime text, cluster int)''')
+    c.execute('''CREATE TABLE scan(fpath text, accessDate text, accessTime text, cluster int)''')
