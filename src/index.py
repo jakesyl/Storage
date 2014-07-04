@@ -4,10 +4,9 @@ Jake Sylvestre
 '''
 import os
 
-for root, dirs, files in os.walk(os.path.expanduser('~')):
-	#print root #just prints the directory it's in
- 	
-
+for root in os.walk(os.path.expanduser('~')):
+    for dirs, files in os.walk(os.path.expanduser('~')):
+        print "em"
 ''' 
 Sudocode:
 Using os.walk design a for loop that starts at the root and crawls through every file 
