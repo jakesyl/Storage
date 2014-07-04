@@ -14,5 +14,5 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     contents.sort()
     for f in contents:
         print f + " is in " + dir_name
-        c.execute('''commands''')#put something that's not retarted here
+        c.execute('')#put something that's not retarted here
 
