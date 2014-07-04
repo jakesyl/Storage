@@ -7,8 +7,7 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     # Make the subdirectory names stand out with /
     sub_dirs = [ '%s/' % n for n in sub_dirs ]
     # Mix the directory contents together
-    contents = sub_dirs + files
+    contents = files #originally sub_dirs + files
     contents.sort()
-    # Show the contents
-    #for c in contents:
-        #print '\t%s' % c
+    for c in contents:
+        
