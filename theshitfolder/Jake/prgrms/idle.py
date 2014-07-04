@@ -1,3 +1,4 @@
+import sqllite
 import os
 
 conn = sqlite3.connect('database.db')#intalizing db
@@ -14,5 +15,15 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     contents.sort()
     for f in contents:
         print f + " is in " + dir_name
-        c.execute('')#put something that's not retarted here
+        
+        c.execute('INSERT INTO scan (' + f, column2, column3,...columnN)]  
+VALUES (value1, value2, value3,...valueN);')#put something that's not retarted here
 
+'''
+I'm tired and have to go to bed, here's what you need to know, first look at alex's dbsetup.py file
+it should have everything you need, insert right shit into right problems, last access is a different story, ask this is irc:
+ hey guys, does anyone know how I can access last modification of the files and not their paths, similiar to this: os.path.getatime(path
+
+talk to alex about fpath., other than that you should be fine
+
+'''
