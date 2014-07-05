@@ -1,4 +1,4 @@
-import sqllite3
+import sqlite3
 import os
 
 conn = sqlite3.connect('database.db')#intalizing db
@@ -16,12 +16,15 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     for f in contents:
         #print f + " is in " + dir_name
         path = dir_name + '/' + f
-        clustery = c.execute('SELECT * FROM clusters WHERE contents = '+ path);
-        if (clustery === 'NULL'):
-            cluster = "undefined" #if undefined alex will find it
-        at=os.path.getatime(os.sep.join(dir_name, f]))#last access time of file
-        c.execute('INSERT INTO scan (fpath, accessDate, cluster)]  VALUES (' + fpath + ',' + at + ',' + cluster')';')'#put something that is not retarted here
-                  
+        c.execute('SELECT * FROM clusters WHERE contents = '+ path);
+        clustery = c.fetchone()
+        if (len(clustery) == 0):
+            cluster = "undefined"
+        else:
+            cluster = clustery[0]
+        cluster = "undefined" #if undefined alex will find it
+        at=os.path.getatime(os.sep.join(dir_name, f))#last access time of file
+        c.execute('INSERT INTO scan (fpath, accessDate, cluster) VALUES (' + fpath + ',' + at + ',' + cluster + ')')#put something that is not retarted here'''
 '''
 OLD:
 
