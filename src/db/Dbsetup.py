@@ -22,3 +22,4 @@ try:
 except sqlite3.OperationalError:
 #files
     c.execute('''CREATE TABLE scan(f path text, accessDate text, cluster int)''')
+print "success"
