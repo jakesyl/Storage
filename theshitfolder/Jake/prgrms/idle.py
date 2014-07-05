@@ -16,9 +16,15 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     for f in contents:
         #print f + " is in " + dir_name
         path = dir_name + '/' + f
-        c.execute('INSERT INTO scan (fpath, accessDate, accessTime, cluster)]  VALUES ('path, value2, value3,...valueN);')#put something that is not retarted here
+        clustery = c.execute('SELECT * FROM clusters WHERE contents = '+ path);
+        if (clustery === 'NULL'):
+            cluster = "undefined" #if undefined alex will find it
+        at=os.path.getatime(os.sep.join(dir_name, f]))#last access time of file
+        c.execute('INSERT INTO scan (fpath, accessDate, cluster)]  VALUES ('fpath, at, cluster);')'#put something that is not retarted here
                   
 '''
+OLD:
+
 I'm tired and have to go to bed, here's what you need to know, first look at alex's dbsetup.py file
 it should have everything you need, insert right shit into right problems, last access is a different story, ask this is irc:
  hey guys, does anyone know how I can access last modification of the files and not their paths, similiar to this: os.path.getatime(path
