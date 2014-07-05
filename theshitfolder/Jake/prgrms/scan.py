@@ -14,7 +14,7 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     contents = files  #originally sub_dirs + files
     contents.sort()
     for f in contents:
-        #print f + " is in " + dir_name
+        print f + " is in " + dir_name
         fpath = dir_name + '/' + f
         c.execute("SELECT * FROM clusters WHERE contents = ?", (fpath,))
         #c.execute('SELECT * FROM clusters WHERE contents = '+ path);
@@ -26,3 +26,4 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
         cluster = "undefined" #if undefined alex will find it
         at=os.path.getatime(os.path.join(dir_name, f))#last access time of file
         c.execute('INSERT INTO scan (fpath, accessDate, cluster) VALUES (?,?,?)', (fpath,at, cluster,))#put something that is not retarted here'''
+print "complete"
