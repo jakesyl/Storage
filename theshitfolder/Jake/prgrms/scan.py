@@ -15,17 +15,14 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     contents.sort()
     for f in contents:
         #print f + " is in " + dir_name
-        path = dir_name + '/' + f
-        c.execute("SELECT * FROM clusters WHERE contents = ?", (path,))
+        fpath = dir_name + '/' + f
+        c.execute("SELECT * FROM clusters WHERE contents = ?", (fpath,))
         #c.execute('SELECT * FROM clusters WHERE contents = '+ path);
         clustery = c.fetchone()
-        if (len(clustery) == 0):
+        if clustery is None:
             cluster = "undefined"
         else:
             cluster = clustery[0]
         cluster = "undefined" #if undefined alex will find it
-        at=os.path.getatime(os.sep.join(dir_name, f))#last access time of file
+        at=os.path.getatime(os.path.join(dir_name, f))#last access time of file
         c.execute('INSERT INTO scan (fpath, accessDate, cluster) VALUES (?,?,?)', (fpath,at, cluster,))#put something that is not retarted here'''
-'''
-So When I left off I was trying to open my database visualizer to see why the thing was giving me an error that says no such table clusters when  there clearly is a table in the dbsetup.py
-'''
