@@ -1,0 +1,1 @@
+        c.execute('INSERT INTO scan (fpath, accessDate, cluster) VALUES (' + fpath + ',' + at + ',' + cluster')')#put something that is not retarted here
