@@ -6,6 +6,7 @@ c = conn.cursor()
 
 # If we are not given a path to list, use /tmp
 root='/'
+excludes = '/Applications'
 for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directory, sub_dirs are subs and files....
     #print '\n', dir_name
     # Make the subdirectory names stand out with /
@@ -14,6 +15,8 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     contents = files  #originally sub_dirs + files
     contents.sort()
     for f in contents:
+        if f in excludes:#check if this directory shouldn't be walked
+            continue
         print f + " is in " + dir_name
         fpath = dir_name + '/' + f
         c.execute("SELECT * FROM clusters WHERE contents = ?", (fpath,))
