@@ -2,8 +2,8 @@ import sqlite3
 import os
 
 conn = sqlite3.connect('database.db')#intalizing db
+conn.text_factory = str #what does this do?, no one knows
 c = conn.cursor()
-text_factory = str #what does this do?, no one knows
 # If we are not given a path to list, use /tmp
 root='/'
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
@@ -19,8 +19,6 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
     cluster = "undefined" #if undefined alex will find it
     at=os.path.getatime(os.path.join(dir_name, f))#last access time of file
     c.execute('INSERT INTO scan (fpath, accessDate, cluster) VALUES (?,?,?)', (fpath,at, cluster,))
-
-excludes = ['/Applications']
 
 for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directory, sub_dirs are subs and files....
     #print '\n', dir_name
