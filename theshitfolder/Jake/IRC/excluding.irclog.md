@@ -149,14 +149,14 @@
 [16:07] == SpaghettiCat [~Spaghetti@stgt-5d843664.pool.mediaWays.net] has quit [Quit: Terminated]
 [16:07] <nedbat> four_o_four: no need for snark, you didn't say "grade"! :)
 [16:07] == mFacenet [~mFacenet@unaffiliated/mfacenet] has joined #python
-[16:07] <four_o_four> I thought it was implieds
+[16:07] <four_o_four> I thought it was impliedsgithubgithub
 [16:07] <nedbat> four_o_four: I missed an earlier message, my mistake! :)
 [16:07] <four_o_four> I just had my eighth cuppa joe
 [16:08] <four_o_four> all good
 [16:08] == lvdz [~aa@109.133.185.250] has quit [Quit: lvdz]
 [16:08] <four_o_four> srry
 [16:08] == d1rkp1tt [~darin@119.224.34.137] has joined #python
-[16:08] == sboudrias [~sboudrias@2601:9:3480:11b9:b81d:bf0d:2440:e235] has joined #python
+[16:08] == sboudrias [~sboudrias@2601:9:3480:11b9:b81d:bf0d:2440:e235] has joined #pythonfads
 [16:09] == shortdudey123 [~shortdude@c-67-180-84-163.hsd1.ca.comcast.net] has joined #python
 [16:09] == pydsigner-work [~pydsigner@unaffiliated/pydsigner] has quit [Read error: No route to host]
 [16:09] == mahmoudimus [~mahmoudim@199.241.202.154] has quit [Ping timeout: 240 seconds]
