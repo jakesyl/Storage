@@ -27,19 +27,19 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     # Mix the directory contents together
     contents = files  #originally sub_dirs + files
     contents.sort()
-    for f in contents:
-        if f in dir_name:#check if this directory shouldn't be walked
-            continue
-        try:
-            dbadd(conn, c, root, dir_name, sub_dirs, files, contents)
-        except OSError:
-            print "ERROR ERROR TERROR BE WARRIE"
-            continue
+    try:
+        sub_dirs.remove('Applications')
+
+    except ValueError:
+        for f in contents:
+        #if f in dir_name:#check if this directory shouldn't be walked
+            #continue
+            try:
+                dbadd(conn, c, root, dir_name, sub_dirs, files, contents)
+            except OSError:
+                print "ERROR ERROR TERROR BE WARRIE"
+                continue
         
 print "complete"
 
-'''
-output:
 
-ProgrammingError: You must not use 8-bit bytestrings unless you use a text_factory that can interpret 8-bit bytestrings (like text_factory = str). It is highly recommended that you instead just switch your application to Unicode strings.
-'''
