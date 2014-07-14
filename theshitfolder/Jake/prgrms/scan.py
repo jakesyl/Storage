@@ -3,7 +3,7 @@ import os
 
 conn = sqlite3.connect('database.db')#intalizing db
 c = conn.cursor()
-
+text_factory = str #what does this do?, no one knows
 # If we are not given a path to list, use /tmp
 root='/'
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
