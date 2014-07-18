@@ -33,9 +33,16 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
         try:
                 dbadd(conn, c, root, dir_name, sub_dirs, files, contents)
         except OSError:
-            print "ERROR ERROR TERROR BE WARRIE"
+            print "OS ERROR, I'm afraid something went wrong continuing"
             continue
         
 print "complete"
 
+'''
+sudocode:
+in the for loop:
+go through each file
+call alex's engine
 
+
+'''
