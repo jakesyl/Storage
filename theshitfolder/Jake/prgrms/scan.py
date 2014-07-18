@@ -25,7 +25,7 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     contents.sort()
     if (dir_name==root): # this isn't working quite right, please come back later!!
         sub_dirs.remove('Applications')#same here
-        #sub_dirs.remove('Library')
+        sub_dirs.remove('Library')
 
     for f in contents:
         #if f in dir_name:#check if this directory shouldn't be walked
