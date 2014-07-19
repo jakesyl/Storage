@@ -43,6 +43,11 @@ def engine(path, times, size):
             print "shit"
             return False
     if isin ==  False:
+        print "shit5"
         return False
+
+
+
+
 
 #print engine("downloads/shit/tile.txt", 1405738428, 10003)
