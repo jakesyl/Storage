@@ -48,8 +48,4 @@ def engine(path, times, size):
     if isin ==  False:
         return False
 
-
-
-
-
-print engine("downloads/shit/tile.txt", 1405738428, 10003)
+#print engine("/downloads/shit/file.png", 1405738428, 89)
