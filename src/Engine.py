@@ -3,8 +3,7 @@ import time
 import datetime
 conn = sqlite3.connect('db/database.db')
 c = conn.cursor()
-def engine(path, time, size):
-    int(time)
+def engine(path, times, size):
     for row in c.execute('SELECT * FROM extentions WHERE ext = "mp4"'):
         if len(row) != 0:
             print "shit"
@@ -14,21 +13,19 @@ def engine(path, time, size):
     extention = pathTypes[length-1]
     extention = (extention,)
     print extention
+    isin = False
     #checks for proper extetion
     for row in c.execute('SELECT * FROM extentions WHERE ext=?', extention):
+        isin = True
         print row
         if len(row) != 0:
             # get readable date from file
-            date = datetime.datetime.fromtimestamp(time).strftime('%Y-%m-%d %H:%M:%S')
+            date = datetime.datetime.fromtimestamp(int(times)).strftime('%Y-%m-%d %H:%M:%S')
             date = date.split(" ")
             date = date[0].split("-")
             # get current time
-            print time.time()
-            date1 = datetime.datetime.fromtimestamp(time.time.time())
-            print date1.date
-            date1 = date1.split(" ")
-            date1 = date1[0].split("-")
-            print date1
+            date1 = time.strftime("%d/%m/%Y")
+            date1 = date1.split("/")
             #check if it is within the month
             if date1[1] == date[1] and date1[0] == date[0]:
                 #check if it is withn the last two days
@@ -48,9 +45,11 @@ def engine(path, time, size):
         else:
             print "shit"
             return False
+    if isin ==  False:
+        return False
 
 
 
 
 
-print engine("downloads/shit/tile.mp4", 1405738428, 10003)
+print engine("downloads/shit/tile.txt", 1405738428, 10003)
