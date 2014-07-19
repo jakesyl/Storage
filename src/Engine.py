@@ -5,15 +5,18 @@ from datetime import datetime
 conn = sqlite3.connect('db/database.db')
 c = conn.cursor()
 def engine(path, time, size):
+    for row in c.execute('SELECT * FROM extentions WHERE ext = "mp4"'):
+        if len(row) != 0:
+            print "shit"
     #getting file etentions
     pathTypes =  path.split('.')
     length = len(pathTypes)
-    print length
     extention = pathTypes[length-1]
-    extention = (extention, )
+    extention = (extention,)
     print extention
     #checks for proper extetion
-    for row in c.execute('SELECT * FROM extentions WHERE ext=?',extention):
+    for row in c.execute('SELECT * FROM extentions WHERE ext=?', extention):
+        print row
         if len(row) != 0:
             # get readable date from file
             date = datetime.fromtimestamp(int(time)).strftime('%Y-%m-%d %H:%M:%S')
@@ -30,20 +33,23 @@ def engine(path, time, size):
                 #check if it is withn the last two days
                 if date1[2] == date[2] or date1[2] == date[2]-1 or date1[2] == date[2]-2:
                     #if so dont upload
+                    print"shit3"
                     return False
                 #if not dont upload
                 else:
+                    print "shit2"
                     return True
                 #if not within the month no need to check just upload
             else:
+                print "shit1"
                 return True
             #if not proper extention dont upload
         else:
+            print "shit"
             return False
-        
 
 
 
 
 
-print engine("downloads/shit/tile.txt", 1405738428, 10003)
+print engine("downloads/shit/tile.mp4", 1405738428, 10003)
