@@ -1,9 +1,10 @@
 import ecdsa#don't know if this is neccesary
 import Crypto
 import paramiko
-import pysftp
-#import interactive# cances are this doesn't actually exsist
+import interactive# cances are this doesn't actually exsist
+s = sftp.Connection(host=localhost)
 
+'''
 client = paramiko.SSHClient()
 client.load_system_host_keys()
 client.set_missing_host_key_policy(paramiko.WarningPolicy())
@@ -14,3 +15,5 @@ stdin, stdout, stderr = client.exec_commands('insert commands here')
 for line in stdout:
     #do something
 client.close()
+need interactive
+'''
