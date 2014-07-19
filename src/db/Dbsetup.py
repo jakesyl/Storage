@@ -17,3 +17,8 @@ try:
 except sqlite3.OperationalError:
 #files
     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
+try:
+    c.execute(''' SELECT * FROM  noUpload''')#whaqt the fuck is a file map
+except sqlite3.OperationalError:
+#files
+    c.execute('''CREATE TABLE noUpload(fpath text)''')
