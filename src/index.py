@@ -1,6 +1,6 @@
 import sqlite3
 import os
-import Engine as engine
+import engine
 
 #Table structure for future reference:     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
 

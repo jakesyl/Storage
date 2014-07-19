@@ -50,3 +50,6 @@ def engine(path, times, size):
 
 
 
+
+
+print engine("downloads/shit/tile.txt", 1405738428, 10003)
