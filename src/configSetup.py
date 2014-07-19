@@ -20,3 +20,6 @@ def configSetup():
     config.set('Files','file1','cal')
     config.set('Files','file1','cin')
     config.set('Files','file1','cpc')
+
+    with open('example.cfg', 'wb') as configfile:
+    config.write(configfile)
