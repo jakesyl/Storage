@@ -51,6 +51,9 @@ except sqlite3.OperationalError:
 
 
 # time to add all of the extions WOOT WOOT
-
-
-
+extentions = ("png","jpg","jpeg","jfif","jpeg2000","ani","anim","apng","art","bmp","psd","bsave","cal","cin","cpc","cpt","dpx","ecw","exr","fits","flic","fpx","gif","hdri","hevc","icer","icns","ico","cur","ics","ilbm","jbig","jbig2","jng","jpeg-ls","jpegxr","mng","miff","pam","pbm","pgm","ppm","pnm","pcx","pgf","pictor","psb","psp","qtvr","ras","rbe","jpeg-hdr","sgi","tga","wbmp","webp","xbm","xcf","xpm","xwd","ciff","dng","ai","cdr","cgm","dxf","eva","emf","gerber","hvif","iges","pgml","svg","vml","wmf","xar","cdf","djvu","eps","pdf","pict","ps","swf","xaml","mpg","mov","wmv","rm","mp4","mpeg","mpg","mpe","mpeg","mpeg-1","mpeg-2","m1s","mpa","mp2","m2a","mp2v","m2v","m2s","avi","qt","asf","asx","wma","mkv","3gp","act","aiff","aac","amr","au","awb","dct","dss","dvf","flac","gsm","iklax","ivs","m4a","m4p","mmf","mp3","mpc","msv","ogg","oga","opus","ra","rm","raw","tta","vox","wave","wma","wv")
+for ext in extentions:
+    ext = (ext, )
+    c.execute('INSERT INTO extentions(ext) VALUES(?)',ext)
+for row in c.execute('SELECT * FROM extentions'):
+    print row
