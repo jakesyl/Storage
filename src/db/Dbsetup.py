@@ -12,13 +12,36 @@ try:
 except sqlite3.OperationalError:
 #files
     c.execute('''CREATE TABLE fileMap(fpath text, size text)''')
+
+
+
 try:
     c.execute(''' SELECT * FROM  scan''')
 except sqlite3.OperationalError:
 #files
     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
+
+
+
 try:
-    c.execute(''' SELECT * FROM  noUpload''')#whaqt the fuck is a file map
+    c.execute(''' SELECT * FROM  noUpload''')#catching crash
 except sqlite3.OperationalError:
-#files
+#no upload list
     c.execute('''CREATE TABLE noUpload(fpath text)''')
+
+
+
+try:
+    c.execute(''' SELECT * FROM  noUpload''')#catching crash
+except sqlite3.OperationalError:
+#no upload
+    c.execute('''CREATE TABLE noUpload(fpath text)''')
+
+
+
+
+try:
+    c.execute(''' SELECT * FROM  extentions''')#catching crash
+except sqlite3.OperationalError:
+#extenstions
+    c.execute('''CREATE TABLE extentions(fpath text)''')
