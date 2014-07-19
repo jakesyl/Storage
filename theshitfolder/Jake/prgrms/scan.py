@@ -26,8 +26,8 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     # Mix the directory contents together
     contents = files  #I don't think this is neccesary at all
     contents.sort()
-    if (dir_name==root): # this isn't working quite right, please come back later!!
-        sub_dirs.remove('Applications')#same here
+    if (dir_name==root): #ignore these directories
+        sub_dirs.remove('Applications')
         sub_dirs.remove('Library')
 
     for f in contents:
