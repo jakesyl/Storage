@@ -22,6 +22,7 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
     size = os.path.getsize(os.path.join(dir_name, f))
     c.execute('INSERT INTO scan (fpath, accessDate) VALUES (?,?)', (fpath,at,))# adds files to sqlite 3 table "scan"
     engine.
+    conn.commit()#this might actually be c.commit idk what alex is doing
 
 for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directory, sub_dirs are subs and files....
     #print '\n', dir_name
