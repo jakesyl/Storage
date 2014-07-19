@@ -1,4 +1,4 @@
-#import Crypto # apparently paramiko is going to contain Crypto
+import Crypto
 import paramiko
 import interactive
 
