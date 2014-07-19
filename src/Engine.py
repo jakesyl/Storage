@@ -4,6 +4,9 @@ import datetime
 conn = sqlite3.connect('db/database.db')
 c = conn.cursor()
 def engine(path, times, size):
+    for row in c.execute('SELECT * FROM extentions WHERE ext = "mp4"'):
+        if len(row) != 0:
+            print "shit"
     #getting file etentions
     pathTypes =  path.split('.')
     length = len(pathTypes)
@@ -45,4 +48,4 @@ def engine(path, times, size):
     if isin ==  False:
         return False
 
-#print engine("downloads/shit/tile.txt", 1405738428, 10003)
+#print engine("/downloads/shit/file.png", 1405738428, 89)

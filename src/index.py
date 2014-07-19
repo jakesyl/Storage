@@ -12,7 +12,12 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
     print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     foo = c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
-    print foo
+    if (foo==True):
+        print "true"
+    elif (foo==False):
+        print "false"
+    else:
+        print "we're fucked"
     rows = c.fetchall()
 
     if (len(rows)!= 0):
