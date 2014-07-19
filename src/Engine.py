@@ -48,8 +48,19 @@ def engine(path, times, size):
     if isin ==  False:
         return False
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
 
 
 
 
+<<<<<<< HEAD
 print engine("downloads/shit/tile.txt", 1405738428, 10003)
+=======
+print engine("downloads/shit/tile.mp4", 1405738428, 10003)
+=======
+#print engine("/downloads/shit/file.png", 1405738428, 89)
+>>>>>>> FETCH_HEAD
+>>>>>>> FETCH_HEAD
