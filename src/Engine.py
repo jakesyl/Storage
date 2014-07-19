@@ -1,4 +1,3 @@
-import ConfigParser
 import sqlite3
 import time
 from time import strftime
@@ -6,8 +5,6 @@ from datetime import datetime
 conn = sqlite3.connect('/db/database.db')
 c = conn.cursor()
 def engine(path, time, size):
-    config = ConfigParser.RawConfigParser()
-    config.read('fTypes.cfg')
     pathTypes =  path.split('.')
     length = len(pathTypes)
     print length
