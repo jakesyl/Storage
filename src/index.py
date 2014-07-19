@@ -57,14 +57,7 @@ root='/'
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
     print f + " is in " + dir_name
     fpath = dir_name + '/' + f
-    foo = c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
-    if (foo==True):
-        print "true"
-    elif (foo==False):
-        print "false"
-    else:
-        print "we're fucked"
-    rows = c.fetchall()
+    c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
 
     if (len(rows)!= 0):
         c.execute ("DELETE FROM scan WHERE fpath = ?", (fpath,))# Here at cortex we don't do duplicates
@@ -94,6 +87,7 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
         except OSError:
             print "OS ERROR, I'm afraid something went wrong continuing"
             continue
+
         
 print "complete"
 
