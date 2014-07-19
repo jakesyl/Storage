@@ -56,9 +56,6 @@ count = 0
 for ext in extentions:
     ext = (ext, count, )
     c.execute('INSERT INTO extentions(ext, count) VALUES(?,?)',ext)
-for row in c.execute('SELECT * FROM extentions WHERE ext = "mp4"'):
-    if len(row) != 0:
-        print "shit"
 
 conn.commit()
 
