@@ -1,7 +1,11 @@
 import sqlite3
 import os
+<<<<<<< HEAD
+import engine
+=======
 import time
 import datetime
+>>>>>>> FETCH_HEAD
 
 #Table structure for future reference:     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
 
@@ -58,9 +62,14 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
     print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
+<<<<<<< HEAD
+=======
+
+    rows = c.fetchall()
+>>>>>>> FETCH_HEAD
 
     if (len(rows)!= 0):
-        c.execute ("DELETE FROM scan WHERE fpath = ?", (fpath,))# Here at cortex we don't do duplicates
+        c.execute ("DELETE * FROM scan WHERE fpath = ?", (fpath,))# Here at cortex we don't do duplicates
         
     at=os.path.getatime(os.path.join(dir_name, f))#last access time of file
     size = os.path.getsize(os.path.join(dir_name, f))
