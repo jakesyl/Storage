@@ -44,4 +44,13 @@ try:
     c.execute(''' SELECT * FROM  extentions''')#catching crash
 except sqlite3.OperationalError:
 #extenstions
-    c.execute('''CREATE TABLE extentions(fpath text)''')
+    c.execute('''CREATE TABLE extentions(ext text)''')
+
+
+
+
+
+# time to add all of the extions WOOT WOOT
+
+
+
