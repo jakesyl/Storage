@@ -4,12 +4,12 @@ import Engine as engine
 
 #Table structure for future reference:     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
 
-conn = sqlite3.connect('database.db')#intalizing db
+conn = sqlite3.connect('db/database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
 root='/'
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
-    #print f + " is in " + dir_name
+    print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     foo = c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
     if (foo==True):
