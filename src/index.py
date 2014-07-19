@@ -1,6 +1,6 @@
 import sqlite3
 import os
-import engine
+import Engine as engine
 
 #Table structure for future reference:     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
 
@@ -9,14 +9,14 @@ conn.text_factory = str #what does this do?, no one knows
 c = conn.cursor()
 root='/'
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
-    print f + " is in " + dir_name
+    #print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
 
     rows = c.fetchall()
 
     if (len(rows)!= 0):
-        c.execute ("DELETE * FROM scan WHERE fpath = ?", (fpath,))# Here at cortex we don't do duplicates
+        c.execute ("DELETE FROM scan WHERE fpath = ?", (fpath,))# Here at cortex we don't do duplicates
         
     at=os.path.getatime(os.path.join(dir_name, f))#last access time of file
     size = os.path.getsize(os.path.join(dir_name, f))
