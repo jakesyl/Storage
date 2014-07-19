@@ -1,6 +1,8 @@
+import ecdsa#don't know if this is neccesary
 import Crypto
 import paramiko
-import interactive
+import pysftp
+#import interactive# cances are this doesn't actually exsist
 
 client = paramiko.SSHClient()
 client.load_system_host_keys()
