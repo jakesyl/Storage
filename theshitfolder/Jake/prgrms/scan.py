@@ -1,5 +1,7 @@
 import sqlite3
 import os
+import engine
+
 #Table structure for future reference:     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
 
 conn = sqlite3.connect('database.db')#intalizing db
