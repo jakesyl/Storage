@@ -1,5 +1,7 @@
 import sqlite3
 import os
+import engine
+
 #Table structure for future reference:     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
 
 conn = sqlite3.connect('database.db')#intalizing db
@@ -17,7 +19,10 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
         c.execute ("DELETE * FROM scan WHERE fpath = ?", (fpath,))# Here at cortex we don't do duplicates
         
     at=os.path.getatime(os.path.join(dir_name, f))#last access time of file
+    size = os.path.getsize(os.path.join(dir_name, f))
     c.execute('INSERT INTO scan (fpath, accessDate) VALUES (?,?)', (fpath,at,))# adds files to sqlite 3 table "scan"
+    engine.engine(fpath,at,size)
+    conn.commit()#this might actually be c.commit idk what alex is doing
 
 for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directory, sub_dirs are subs and files....
     #print '\n', dir_name
@@ -26,8 +31,8 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     # Mix the directory contents together
     contents = files  #I don't think this is neccesary at all
     contents.sort()
-    if (dir_name==root): # this isn't working quite right, please come back later!!
-        sub_dirs.remove('Applications')#same here
+    if (dir_name==root): #ignore these directories
+        sub_dirs.remove('Applications')
         sub_dirs.remove('Library')
 
     for f in contents:
