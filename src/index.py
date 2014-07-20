@@ -9,7 +9,7 @@ conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
 root='/'
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
-    print f + " is in " + dir_name
+    #print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
 
@@ -21,7 +21,7 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
     at=os.path.getatime(os.path.join(dir_name, f))#last access time of file
     size = os.path.getsize(os.path.join(dir_name, f))
     c.execute('INSERT INTO scan (fpath, accessDate) VALUES (?,?)', (fpath,at,))# adds files to sqlite 3 table "scan"
-    print engine.engine(fpath,at,size)
+    #print engine.engine(fpath,at,size)
     conn.commit()#this might actually be c.commit idk what alex is doing
 
 for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directory, sub_dirs are subs and files....
