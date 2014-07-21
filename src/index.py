@@ -57,6 +57,10 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
         except OSError:
             print "OS ERROR, I'm afraid something went wrong continuing"
             continue
+        except UnicodeError:
+            print "UnicodeError continuing"
+            continue
+        
         
 print "complete"
 
