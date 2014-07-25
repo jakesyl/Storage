@@ -9,7 +9,7 @@ conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
 root='/'
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
-    print f + " is in " + dir_name
+    #print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
 
@@ -34,20 +34,6 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     if (dir_name==root): #ignore these directories
         sub_dirs.remove('Applications')
         sub_dirs.remove('Library')
-        sub_dirs.remove('System')
-        sub_dirs.remove('Developer')
-        sub_dirs.remove('.DocumentRevisions-V100')
-        sub_dirs.remove('.fseventsd')
-        sub_dirs.remove('.Trashes')
-        sub_dirs.remove('.vol')
-        sub_dirs.remove('bin')
-        sub_dirs.remove('cores')
-        sub_dirs.remove('etc')
-        sub_dirs.remove('Network')
-        sub_dirs.remove('opt')
-        sub_dirs.remove('private')
-        sub_dirs.remove('dev')
-        
 
     for f in contents:
         #if f in dir_name:#check if this directory shouldn't be walked
@@ -57,10 +43,6 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
         except OSError:
             print "OS ERROR, I'm afraid something went wrong continuing"
             continue
-        except UnicodeError:
-            print "UnicodeError continuing"
-            continue
-        
         
 print "complete"
 
