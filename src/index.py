@@ -1,6 +1,6 @@
 import sqlite3
 import os
-import engine
+import Engine as engine
 
 #Table structure for future reference:     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
 
@@ -8,26 +8,8 @@ conn = sqlite3.connect('db/database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
 root='/'
-def remove(sub_dirs):
-        sub_dirs.remove('Applications')
-        sub_dirs.remove('Library')
-        sub_dirs.remove('System')
-        sub_dirs.remove('Developer')
-        sub_dirs.remove('.DocumentRevisions-V100')
-        sub_dirs.remove('.fseventsd')
-        sub_dirs.remove('.Trashes')
-        sub_dirs.remove('.vol')
-        sub_dirs.remove('bin')
-        sub_dirs.remove('cores')
-        sub_dirs.remove('etc')
-        sub_dirs.remove('Network')
-        sub_dirs.remove('opt')
-        sub_dirs.remove('private')
-        sub_dirs.remove('dev')
-
-
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
-    #print f + " is in " + dir_name
+    print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
 
@@ -50,25 +32,35 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     contents = files  #I don't think this is neccesary at all
     contents.sort()
     if (dir_name==root): #ignore these directories
-<<<<<<< HEAD
         sub_dirs.remove('Applications')
         sub_dirs.remove('Library')
-=======
-        try remove()
-
-        except ValueError:
-            print "Errror"
+        sub_dirs.remove('System')
+        sub_dirs.remove('Developer')
+        sub_dirs.remove('.DocumentRevisions-V100')
+        sub_dirs.remove('.fseventsd')
+        sub_dirs.remove('.Trashes')
+        sub_dirs.remove('.vol')
+        sub_dirs.remove('bin')
+        sub_dirs.remove('cores')
+        sub_dirs.remove('etc')
+        sub_dirs.remove('Network')
+        sub_dirs.remove('opt')
+        sub_dirs.remove('private')
+        sub_dirs.remove('dev')
         
->>>>>>> FETCH_HEAD
 
     for f in contents:
         #if f in dir_name:#check if this directory shouldn't be walked
             #continue
         try:
-                dbadd(conn, c, root, dir_name, sub_dirs, files, contents,f)
+                dbadd(conn, c, root, dir_name, sub_dirs, files, contents)
         except OSError:
             print "OS ERROR, I'm afraid something went wrong continuing"
             continue
+        except UnicodeError:
+            print "UnicodeError continuing"
+            continue
+        
         
 print "complete"
 
