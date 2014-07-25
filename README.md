@@ -1,4 +1,4 @@
-cortexstorage
+Cortex Storage
 =============
 
-A python storage application
+A Dynamic Local/Cloud based python storing machine
