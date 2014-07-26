@@ -42,7 +42,7 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
         #if f in dir_name:#check if this directory shouldn't be walked
             #continue
         try:
-                dbadd(conn, c, root, dir_name, sub_dirs, files, contents,f)
+                dbadd(conn, c, root, dir_name, sub_dirs, files, contents)
         except OSError:
             print "OS ERROR, I'm afraid something went wrong continuing"
             continue
