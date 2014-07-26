@@ -1,4 +1,4 @@
 Cortex Storage
 =============
 
-A Dynamic Local/Cloud based python storing machine
+A Dynamic Local and Cloud based python Storage Application

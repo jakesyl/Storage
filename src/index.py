@@ -1,13 +1,16 @@
 import sqlite3
 import os
-import Engine as engine
+import engine
+
 
 #Table structure for future reference:     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
 
 conn = sqlite3.connect('db/database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
-root='/'
+root='/'#change this before development
+remove_dirs = ('Applications','Library','System','Developer','.DocumentRevisions-V100','.fseventsd','.Trashes','.vol', 'bin', 'cores','etc','Network','opt','private','dev')
+
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
     print f + " is in " + dir_name
     fpath = dir_name + '/' + f
@@ -32,24 +35,10 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     contents = files  #I don't think this is neccesary at all
     contents.sort()
     if (dir_name==root): #ignore these directories
-        sub_dirs.remove('Applications')
-        sub_dirs.remove('Library')
-        sub_dirs.remove('System')
-        sub_dirs.remove('Developer')
-        sub_dirs.remove('.DocumentRevisions-V100')
-        sub_dirs.remove('.fseventsd')
-        sub_dirs.remove('.Trashes')
-        sub_dirs.remove('.vol')
-        sub_dirs.remove('bin')
-        sub_dirs.remove('cores')
-        sub_dirs.remove('etc')
-        sub_dirs.remove('Network')
-        sub_dirs.remove('opt')
-        sub_dirs.remove('private')
-        sub_dirs.remove('dev')
-        
-
-    for f in contents:
+        for dname in remove_dirs:
+            if (dname in sub_dirs):#if dname (an item on the remove list) is a subdirectory in the current directory (in this case ~)
+                sub_dirs.remove(dname)
+    for f in contents: #contents represents dir_names is os.walk
         #if f in dir_name:#check if this directory shouldn't be walked
             #continue
         try:
