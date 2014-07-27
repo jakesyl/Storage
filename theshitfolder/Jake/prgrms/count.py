@@ -1,18 +1,18 @@
 import os
-import timeit
+#import timeit
 #TODO add a shit ton more threads
 #just counts files were indexing
-i=1 #fuck naming conventions
-root=os.path.expanduser('~')#change this before development
-print "start"
-start = timeit.default_timer()
-for dir_name, sub_dirs, files in os.walk(root):
-	#print i
-	i = i+1#change to i+=1 later
-stop = timeit.default_timer()
-print "i is " + str(i)
-print "done"
-print stop - start #runtime
+def count():
+	i=1 #fuck naming conventions
+	root=os.path.expanduser('~')#change this before development
+	print "start"
+	#start = timeit.default_timer()
+	for dir_name, sub_dirs, files in os.walk(root):
+		#print i
+		i = i+1#change to i+=1 later
+	return i #returns the count
+#stop = timeit.default_timer()
+
 '''
 Note this might already be fixed (i'm rerunning)
 
