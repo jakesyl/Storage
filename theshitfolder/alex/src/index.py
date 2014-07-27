@@ -9,7 +9,6 @@ conn = sqlite3.connect('database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
 root=os.path.expanduser('~')#change this before development
-print root
 remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev')
 
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
@@ -35,15 +34,16 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     # Mix the directory contents together
     contents = files  #I don't think this is neccesary at all
     contents.sort()
+
+    for dirs in sub_dirs:
+        chars = list(dirs)
+        print chars[0]
+        if chars[0] == '.':
+            sub_dirs.remove(dirs)
     if (dir_name==root): #ignore these directories
         for dname in remove_dirs:
             if (dname in sub_dirs):#if dname (an item on the remove list) is a subdirectory in the current directory (in this case ~)
                 sub_dirs.remove(dname)
-    for dirs in sub_dirs:
-        dirs.split()
-        if dirs[0] == '.':
-            print "it got this far"
-            sub_dirs.remove(dirs)
             
     for f in contents: #contents represents dir_names is os.walk
         #if f in dir_name:#check if this directory shouldn't be walked
