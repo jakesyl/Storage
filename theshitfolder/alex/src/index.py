@@ -37,9 +37,10 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
 
     for dirs in sub_dirs:
         chars = list(dirs)
-        print chars[0]
+        print dirs
         if chars[0] == '.':
             sub_dirs.remove(dirs)
+            print sub_dirs
     if (dir_name==root): #ignore these directories
         for dname in remove_dirs:
             if (dname in sub_dirs):#if dname (an item on the remove list) is a subdirectory in the current directory (in this case ~)
