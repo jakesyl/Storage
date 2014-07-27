@@ -1,3 +1,4 @@
+#TODO ignore .* (dotfiles)
 import sqlite3
 import os
 import engine
@@ -9,7 +10,7 @@ conn = sqlite3.connect('db/database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
 root='/'#change this before development
-remove_dirs = ('Applications','Library','System','Developer','.DocumentRevisions-V100','.fseventsd','.Trashes','.vol', 'bin', 'cores','etc','Network','opt','private','dev')
+remove_dirs = ('Applications','Library','System','Developer','.DocumentRevisions-V100','.fseventsd','.Trashes','.vol', 'bin', 'cores','etc','Network','opt','private','dev') 
 
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
     print f + " is in " + dir_name
