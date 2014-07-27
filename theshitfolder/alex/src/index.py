@@ -8,7 +8,8 @@ import engine
 conn = sqlite3.connect('database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
-root='/'#change this before development
+root=os.path.expanduser('~')#change this before development
+print root
 remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev')
 
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
@@ -41,6 +42,7 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     for dirs in sub_dirs:
         dirs.split()
         if dirs[0] == '.':
+            print "it got this far"
             sub_dirs.remove(dirs)
             
     for f in contents: #contents represents dir_names is os.walk
@@ -61,11 +63,4 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
         
 print "complete"
 
-'''
-sudocode:
-in the for loop:
-go through each file
-call alex's engine
 
-
-'''
