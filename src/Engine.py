@@ -1,7 +1,7 @@
 import sqlite3
 import time
 import datetime
-conn = sqlite3.connect('db/database.db')
+conn = sqlite3.connect('database.db')
 c = conn.cursor()
 def engine(path, times, size):
     #getting file etentions

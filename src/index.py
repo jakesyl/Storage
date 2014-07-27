@@ -5,7 +5,7 @@ import engine
 
 #Table structure for future reference:     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
 
-conn = sqlite3.connect('db/database.db')#intalizing db
+conn = sqlite3.connect('database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
 root='/'#change this before development
