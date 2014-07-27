@@ -1,14 +1,15 @@
 import sqlite3
 import os
 import engine
+#first we should os.walk everything just for a counter so we can do file x/y uploaded
+# we should increase and decrease threads dynamically based on cpu usage, not quite sure how we can do this but i found a good python c bridge:
+#https://pythonhosted.org/pyobjc/
 
-
-#Table structure for future reference:     c.execute('''CREATE TABLE scan(fpath text, accessDate text)''')
 
 conn = sqlite3.connect('database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
-root=os.path.expanduser('~')#change this before development
+root=os.path.expanduser('~')#I don't know why i commented this maybe you can figure it out; change this before development
 print root
 remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev')
 
