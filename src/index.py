@@ -1,4 +1,3 @@
-#TODO ignore .* (dotfiles)
 import sqlite3
 import os
 import engine
@@ -10,7 +9,7 @@ conn = sqlite3.connect('db/database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
 root='/'#change this before development
-remove_dirs = ('Applications','Library','System','Developer','.DocumentRevisions-V100','.fseventsd','.Trashes','.vol', 'bin', 'cores','etc','Network','opt','private','dev') 
+remove_dirs = ('Applications','Library','System','Developer','.DocumentRevisions-V100','.fseventsd','.Trashes','.vol', 'bin', 'cores','etc','Network','opt','private','dev')
 
 def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
     print f + " is in " + dir_name
@@ -39,6 +38,11 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
         for dname in remove_dirs:
             if (dname in sub_dirs):#if dname (an item on the remove list) is a subdirectory in the current directory (in this case ~)
                 sub_dirs.remove(dname)
+    for dirs in sub_dirs:
+        dirs.split()
+        if dirs[0] == '.':
+            sub_dirs.remove(dirs)
+            
     for f in contents: #contents represents dir_names is os.walk
         #if f in dir_name:#check if this directory shouldn't be walked
             #continue
@@ -49,6 +53,9 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
             continue
         except UnicodeError:
             print "UnicodeError continuing"
+            continue
+        except sqlite3.ProgrammingError:
+            print 'sqlite3 error'
             continue
         
         
