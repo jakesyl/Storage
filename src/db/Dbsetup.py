@@ -57,6 +57,7 @@ for ext in extentions:
     ext = (ext, count, )
     c.execute('INSERT INTO extentions(ext, count) VALUES(?,?)',ext)
 conn.commit()
+print "yes"
 
 
 
