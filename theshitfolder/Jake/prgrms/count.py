@@ -22,14 +22,13 @@ def count():
 		fincount+=addable
 		#print i
 		i = i+1#change to i+=1 later
+		def walkthedoge(sub_dir):
+			i=0
+			for dir_name, sub_dirs, files in os.walk(sub_dir):
+				i+=1
+	summation.append(i)		
 	return i #returns the count
 #stop = timeit.default_timer()
-def walkthedoge(sub_dir):
-	i=0
-	for dir_name, sub_dirs, files in os.walk(sub_dir):
-		i+=1
-	summation.append(i)		
-
 #count()# for testing remove later
 #part of a subproccesss
 count()
