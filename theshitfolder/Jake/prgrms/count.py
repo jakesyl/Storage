@@ -39,4 +39,5 @@ sudocode:
 *start a new thread for each 
 *os.walk all of them
 handle files using isdir
+
 '''
