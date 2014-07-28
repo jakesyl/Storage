@@ -19,7 +19,7 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
     print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
-    count = +=1
+    count +=1
     percentage = count/filecount
     rows = c.fetchall()
 
