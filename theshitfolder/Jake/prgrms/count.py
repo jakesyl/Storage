@@ -1,7 +1,8 @@
+THREADS DO NOT HELP WITH ANYTHING, LESSON LEARNED
 import time # for sleeping while waiting for threads
 import os
-import thread #not sure if threading and thread are even the same thing, but i guess i'll find out
-#import threading#don't think this is neccesary
+#import thread #not sure if threading and thread are even the same thing, but i guess i'll find out
+import threading#don't think this is neccesary
 #import timeit
 #TODO add a shit ton more threads
 #just counts files were indexing
