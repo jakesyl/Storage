@@ -6,7 +6,7 @@ import counting
 # we should increase and decrease threads dynamically based on cpu usage, not quite sure how we can do this but i found a good python c bridge:
 #https://pythonhosted.org/pyobjc/
 
-count=1
+count = 1
 filecount = counting.counting()
 conn = sqlite3.connect('database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
@@ -19,7 +19,7 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
     print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
-    count = count + 1
+    count = +=1
     percentage = count/filecount
     rows = c.fetchall()
 
