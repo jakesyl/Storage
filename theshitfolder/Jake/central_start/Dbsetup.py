@@ -36,6 +36,7 @@ def makedb():
     except sqlite3.OperationalError:
     #no upload list
         c.execute('''CREATE TABLE noUpload(fpath text)''')
+        logger.info("Table noUpload doesn't exsist creating it")
 
 
 
@@ -44,6 +45,7 @@ def makedb():
     except sqlite3.OperationalError:
     #no upload
         c.execute('''CREATE TABLE noUpload(fpath text)''')
+        logger.info("Table noUpload doesn't exsist creating it")
 
 
 
@@ -53,6 +55,8 @@ def makedb():
     except sqlite3.OperationalError:
     #extenstions
         c.execute('''CREATE TABLE extentions(ext text, count integer)''')
+        logger.info("Table extenstions doesn't exsist creating it")
+
 
 
 
@@ -65,8 +69,7 @@ def makedb():
         ext = (ext, count, )
         c.execute('INSERT INTO extentions(ext, count) VALUES(?,?)',ext)
     conn.commit()
-    print "yes"#TODO change to log
-
+        logger.info("Completed table creation")
 
 
 
