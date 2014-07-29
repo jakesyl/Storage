@@ -1,8 +1,11 @@
 import ConfigParser
+#Sets up a config file (Doesn't work)
+#Alex this file doesn't even work, and why the fuck is this thing called example.config i need you to call it config.cfg
+#make this a for loop
 def configSetup():
     config = ConfigParser.RawConfigParser()
     config.add_section('Files')
-    for
+    #For, ALEX YOU STARTED WRITING A FOR LOOP AND NEVER FINISHED WHAT THE FUCK
     config.set('Files','file1','png')
     config.set('Files','file2','mp3')
     config.set('Files','file3','mp4')
@@ -22,4 +25,4 @@ def configSetup():
     config.set('Files','file1','cpc')
 
     with open('example.cfg', 'wb') as configfile:
-    config.write(configfile)
+        config.write(configfile)#ALEX THIS WASN"T EVEN FUCKING INDENTED
