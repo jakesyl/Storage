@@ -1,42 +1,57 @@
-import sqlite3
-import os
-import engine
-import counting
-#https://pythonhosted.org/pyobjc/ what were using for objective C in cocoa, note for ALEX
-#TODO get rid of contents, just not quite ready to do this in vim
+import sqlite3# for local databases
+import os#For os.walk/expand user
+import logging#Avoid Printing Errors
+import engine#decides wether or not a file should be uploaded
+import counting#counts files to show percentage
+#import upload# for uploading all our files
 
-count=1 #Increments every time a file is fully scanned/ (if needed) uploaded NOT FOR COUNT
-filecount = counting.counting()#Counts files in order to show a percentage
+########BULLETIN BOARD########## put shit here
+#https://pythonhosted.org/pyobjc/
+#We should probably catch more of this shit in the middle of the loop
+#at a certain point everythings getting imported in __init__.py
+
+#logging initalzing
+logging.basicConfig(level=logging.DEBUG)#adjust level to see different levels of stuff
+logger = logging.getLogger(__name__)
+
+
+count = 1#intalize completion counter
+filecount = counting.counting()#occasionally get's commented out in a commit for testing
 conn = sqlite3.connect('database.db')#intalizing db
-conn.text_factory = unicode #May delete later, not sure if this actually does anything
+conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
-root=os.path.expanduser('~')
-print root
+root=os.path.expanduser('~')#I don't know why i commented this maybe you can figure it out; change this before development
 remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev')
 
-def dbadd(conn, c, root, dir_name, sub_dirs, files, contents, count):
-    print f + " is in " + dir_name
-    fpath = dir_name + '/' + f
+def dbadd(conn, c, root, dir_name, sub_dirs, files,count):
+    logger.info(f + " is in " + dir_name)
+    fpath = dir_name + '/' + f #used for db/by engine
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
-    count +=1# increment count for percentage showing
-    percentage = count/filecount#Get percentage
+    count += 1
+    percentage = count/filecount
     rows = c.fetchall()
 
     if (len(rows)!= 0):
-        c.execute ("DELETE FROM scan WHERE fpath = ?", (fpath,))#Deletes duplicates in scan TODO fix this to store history
+        c.execute ("DELETE FROM scan WHERE fpath = ?", (fpath,))#Change this when you get the chance
+        
     at=os.path.getatime(os.path.join(dir_name, f))#last access time of file
     size = os.path.getsize(os.path.join(dir_name, f))
-    c.execute('INSERT INTO scan (fpath, accessDate) VALUES (?,?)', (fpath,at,))#adds files to sqlite 3 table "scan"
-    engine.engine(fpath,at,size)# Returns true or false as to wether or not to upload
-    conn.commit()
+    c.execute('INSERT INTO scan (fpath, accessDate) VALUES (?,?)', (fpath,at,))# adds files to sqlite 3 table "scan"
+    boolUpload = engine.engine(fpath,at,size)#returns a value as to wether or not this file should be uploaded
+    '''
+    if (boolUpload == True):
+        #try and catch for a shit ton of errors to (maybe)
+        upload.upload(putArgsHere)
+    '''
+    conn.commit()#this might actually be c.commit idk what alex is doing
 
 for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directory, sub_dirs are subs and files....
     #print '\n', dir_name
     # Make the subdirectory names stand out with / still not 100% sure what this line actually does but, hey it works right?
     #sub_dirs = [ '%s/' % n for n in sub_dirs ]
-    # Mix the directory contents together
-    contents = files  #I don't think this is neccesary at all
-    contents.sort()
+    # Mix the directory files together
+      #I don't think this is neccesary at all
+    files.sort()
     if (dir_name==root): #ignore these directories
         for dname in remove_dirs:
             if (dname in sub_dirs):#if dname (an item on the remove list) is a subdirectory in the current directory (in this case ~)
@@ -46,22 +61,26 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
         if dirs[0] == '.':
             sub_dirs.remove(dirs)
             
-    for f in contents: #contents represents dir_names is os.walk
+    for f in files: #files represents dir_names is os.walk
         #if f in dir_name:#check if this directory shouldn't be walked
             #continue
-        try:
-                dbadd(conn, c, root, dir_name, sub_dirs, files, contents,count)
-        except OSError:
-            print "OS ERROR, I'm afraid something went wrong continuing"
+            #Let's make sure that we don't get any .dotfiles:
+        if (f[0] == '.'):
             continue
-        except UnicodeError:
-            print "UnicodeError continuing"
-            continue
-        except sqlite3.ProgrammingError:
-            print 'sqlite3 error'
-            continue
+        else:
+            try:
+                    dbadd(conn, c, root, dir_name, sub_dirs, files, count)
+            except OSError:
+                logger.debug("OSError, continuing")
+                continue
+            except UnicodeError:
+                logger.debug("UnicodeError continuing")
+                continue
+            except sqlite3.ProgrammingError:
+                logger.debug('sqlite3 error, continuing')
+                continue
         
         
-print "complete"
+print "Complete"
 
 
