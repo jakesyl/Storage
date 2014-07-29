@@ -2,35 +2,33 @@ import sqlite3
 import os
 import engine
 import counting
-#first we should os.walk everything just for a counter so we can do file x/y uploaded
-# we should increase and decrease threads dynamically based on cpu usage, not quite sure how we can do this but i found a good python c bridge:
-#https://pythonhosted.org/pyobjc/
+#https://pythonhosted.org/pyobjc/ what were using for objective C in cocoa, note for ALEX
+#TODO get rid of contents, just not quite ready to do this in vim
 
-count = 1
-filecount = counting.counting()
+count=1 #Increments every time a file is fully scanned/ (if needed) uploaded NOT FOR COUNT
+filecount = counting.counting()#Counts files in order to show a percentage
 conn = sqlite3.connect('database.db')#intalizing db
-conn.text_factory = unicode #what does this do?, no one knows
+conn.text_factory = unicode #May delete later, not sure if this actually does anything
 c = conn.cursor()
-root=os.path.expanduser('~')#I don't know why i commented this maybe you can figure it out; change this before development
+root=os.path.expanduser('~')
 print root
 remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev')
 
-def dbadd(conn, c, root, dir_name, sub_dirs, files, contents,count):
+def dbadd(conn, c, root, dir_name, sub_dirs, files, contents, count):
     print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
-    count +=1
-    percentage = count/filecount
+    count +=1# increment count for percentage showing
+    percentage = count/filecount#Get percentage
     rows = c.fetchall()
 
     if (len(rows)!= 0):
-        c.execute ("DELETE FROM scan WHERE fpath = ?", (fpath,))# Here at cortex we don't do duplicates
-        
+        c.execute ("DELETE FROM scan WHERE fpath = ?", (fpath,))#Deletes duplicates in scan TODO fix this to store history
     at=os.path.getatime(os.path.join(dir_name, f))#last access time of file
     size = os.path.getsize(os.path.join(dir_name, f))
-    c.execute('INSERT INTO scan (fpath, accessDate) VALUES (?,?)', (fpath,at,))# adds files to sqlite 3 table "scan"
-    engine.engine(fpath,at,size)
-    conn.commit()#this might actually be c.commit idk what alex is doing
+    c.execute('INSERT INTO scan (fpath, accessDate) VALUES (?,?)', (fpath,at,))#adds files to sqlite 3 table "scan"
+    engine.engine(fpath,at,size)# Returns true or false as to wether or not to upload
+    conn.commit()
 
 for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directory, sub_dirs are subs and files....
     #print '\n', dir_name
