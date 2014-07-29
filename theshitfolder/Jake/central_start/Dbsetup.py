@@ -7,6 +7,7 @@ import logger #for info logging
 def makedb():
     #logger setup
     logger = logging.getLogger(__name__)
+    logging.basicConfig(level=logging.INFO)#adjust level to see different levels of stuff
 
     #db setup
     conn = sqlite3.connect('database.db')#intalizing db
@@ -69,7 +70,7 @@ def makedb():
         ext = (ext, count, )
         c.execute('INSERT INTO extentions(ext, count) VALUES(?,?)',ext)
     conn.commit()
-        logger.info("Completed table creation")
+    logger.info("Completed table creation")
 
 
 
