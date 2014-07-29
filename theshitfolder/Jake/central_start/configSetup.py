@@ -1,6 +1,5 @@
 import ConfigParser
 #Sets up a config file (Doesn't work)
-#Alex this file doesn't even work, and why the fuck is this thing called example.config i need you to call it config.cfg
 #make this a for loop
 def configSetup():
     config = ConfigParser.RawConfigParser()
@@ -24,5 +23,5 @@ def configSetup():
     config.set('Files','file1','cin')
     config.set('Files','file1','cpc')
 
-    with open('example.cfg', 'wb') as configfile:
+    with open('config.cfg', 'wb') as configfile:
         config.write(configfile)#ALEX THIS WASN"T EVEN FUCKING INDENTED
