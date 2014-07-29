@@ -27,7 +27,7 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files,count):
     logger.info(f + " is in " + dir_name)
     fpath = dir_name + '/' + f #used for db/by engine
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
-    count += 1
+    count += 1.0 #Returns a float
     percentage = count/filecount
     rows = c.fetchall()
 
