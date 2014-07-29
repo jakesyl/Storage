@@ -13,14 +13,13 @@ import counting#counts files to show percentage
 #we shouldn't keep copying and pasting logging to every new file
 #WE SHOULD MAKE AN API THAT LET'S OTHER APPLICATIONS ACCESS AND UTILIZE DATA FROM OUR SQLITE3 TABLES
 
-def logger():
-    logger = logging.getLogger(__name__)
 
 def index():
     #logging initalizing
-    logger()
+    logging.basicConfig(level=logging.INFO)#adjust level to see different levels of stuff
+    logger = logging.getLogger(__name__)
     count = 1#intalize completion counter 
-    #filecount = counting.counting()#occasionally get's commented out in a commit for testing
+    filecount = counting.counting()#occasionally get's commented out in a commit for testing
     conn = sqlite3.connect('database.db')#intalizing db
     conn.text_factory = unicode #what does this do?, no one knows
     c = conn.cursor()
@@ -51,7 +50,7 @@ def index():
                 continue
             else:
                 try:
-                        dbadd(conn, c, root, dir_name, sub_dirs, files, count)
+                        dbadd(conn, c, root, dir_name, sub_dirs, files, count, f)
                 except OSError:
                     logger.debug("OSError, continuing")
                     continue
@@ -65,14 +64,15 @@ def index():
             
     print "Complete"
 
-def dbadd(conn, c, root, dir_name, sub_dirs, files,count):
+def dbadd(conn, c, root, dir_name, sub_dirs, files,count,f):
     if (count==1):
-        logger()
+        logging.basicConfig(level=logging.INFO)#adjust level to see different levels of stuff
+        logger = logging.getLogger(__name__)
     logger.info(f + " is in " + dir_name)
     fpath = dir_name + '/' + f #used for db/by engine
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
     count += 1.0 #Returns a float
-    #percentage = count/filecount
+    percentage = count/filecount
     rows = c.fetchall()
 
     if (len(rows)!= 0):
@@ -88,4 +88,4 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files,count):
         upload.upload(putArgsHere)
     '''
     conn.commit()#this might actually be c.commit idk what alex is doing
-index()
+#index()#used for testing
