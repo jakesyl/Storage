@@ -6,7 +6,6 @@ import Dbsetup as makedb
 import index
 
 #Setup Logging 
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 contents = os.listdir(os.getcwd())#gets the contents of the current directory
