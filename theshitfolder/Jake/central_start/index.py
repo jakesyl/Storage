@@ -85,4 +85,4 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files,count):
         upload.upload(putArgsHere)
     '''
     conn.commit()#this might actually be c.commit idk what alex is doing
-index()
+#index()
