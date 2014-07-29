@@ -13,11 +13,12 @@ import counting#counts files to show percentage
 #we shouldn't keep copying and pasting logging to every new file
 #WE SHOULD MAKE AN API THAT LET'S OTHER APPLICATIONS ACCESS AND UTILIZE DATA FROM OUR SQLITE3 TABLES
 
-def index():
-    #logging initalizing
-    logging.basicConfig(level=logging.DEBUG)#adjust level to see different levels of stuff
+def logger():
     logger = logging.getLogger(__name__)
 
+def index():
+    #logging initalizing
+    logger()
     count = 1#intalize completion counter 
     #filecount = counting.counting()#occasionally get's commented out in a commit for testing
     conn = sqlite3.connect('database.db')#intalizing db
@@ -65,6 +66,8 @@ def index():
     print "Complete"
 
 def dbadd(conn, c, root, dir_name, sub_dirs, files,count):
+    if (count==1):
+        logger()
     logger.info(f + " is in " + dir_name)
     fpath = dir_name + '/' + f #used for db/by engine
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
