@@ -1,8 +1,10 @@
 #import ecdsa#don't know if this is neccesary
 #import Crypto
 import paramiko
+import logging
 #import interactive #cances are this doesn't actually exsist
 def upload():
+	logger = logging.getLogger(__name__)
 	try:
 	    client = paramiko.SSHClient()
 	    client.load_system_host_keys()
