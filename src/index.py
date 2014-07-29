@@ -15,7 +15,7 @@ root=os.path.expanduser('~')#I don't know why i commented this maybe you can fig
 print root
 remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev')
 
-def dbadd(conn, c, root, dir_name, sub_dirs, files, contents):
+def dbadd(conn, c, root, dir_name, sub_dirs, files, contents,count):
     print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
