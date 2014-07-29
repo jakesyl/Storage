@@ -50,7 +50,7 @@ def index():
                 continue
             else:
                 try:
-                        dbadd(conn, c, root, dir_name, sub_dirs, files, count, f)
+                        dbadd(conn, c, root, dir_name, sub_dirs, files, count, f, filecount)
                 except OSError:
                     logger.debug("OSError, continuing")
                     continue
@@ -64,7 +64,7 @@ def index():
             
     print "Complete"
 
-def dbadd(conn, c, root, dir_name, sub_dirs, files,count,f):
+def dbadd(conn, c, root, dir_name, sub_dirs, files,count,f,filecount):
     if (count==1):
         logging.basicConfig(level=logging.INFO)#adjust level to see different levels of stuff
         logger = logging.getLogger(__name__)
