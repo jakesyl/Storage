@@ -2,7 +2,7 @@
 Creates database and subsequent tables on users computer
 '''
 import sqlite3
-import logger #for info logging
+import logging #for info logging
 
 def makedb():
     #logger setup
