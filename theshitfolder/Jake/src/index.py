@@ -6,8 +6,8 @@ import counting
 # we should increase and decrease threads dynamically based on cpu usage, not quite sure how we can do this but i found a good python c bridge:
 #https://pythonhosted.org/pyobjc/
 
-count=1
-filecount = counting.counting()
+count = 1
+filecount = counting.counting()#occasionally get's commented out in a commit for testing
 conn = sqlite3.connect('database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
@@ -15,7 +15,7 @@ root=os.path.expanduser('~')#I don't know why i commented this maybe you can fig
 print root
 remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev')
 
-def dbadd(conn, c, root, dir_name, sub_dirs, files, contents,count):
+def dbadd(conn, c, root, dir_name, sub_dirs, files,count):
     print f + " is in " + dir_name
     fpath = dir_name + '/' + f
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
@@ -36,9 +36,9 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
     #print '\n', dir_name
     # Make the subdirectory names stand out with / still not 100% sure what this line actually does but, hey it works right?
     #sub_dirs = [ '%s/' % n for n in sub_dirs ]
-    # Mix the directory contents together
-    contents = files  #I don't think this is neccesary at all
-    contents.sort()
+    # Mix the directory files together
+      #I don't think this is neccesary at all
+    files.sort()
     if (dir_name==root): #ignore these directories
         for dname in remove_dirs:
             if (dname in sub_dirs):#if dname (an item on the remove list) is a subdirectory in the current directory (in this case ~)
@@ -48,22 +48,27 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
         if dirs[0] == '.':
             sub_dirs.remove(dirs)
             
-    for f in contents: #contents represents dir_names is os.walk
+    for f in files: #files represents dir_names is os.walk
         #if f in dir_name:#check if this directory shouldn't be walked
             #continue
-        try:
-                dbadd(conn, c, root, dir_name, sub_dirs, files, contents,count)
-        except OSError:
-            print "OS ERROR, I'm afraid something went wrong continuing"
+            #Let's make sure that we don't get any .dotfiles:
+        if (f[0] == '.'):
             continue
-        except UnicodeError:
-            print "UnicodeError continuing"
-            continue
-        except sqlite3.ProgrammingError:
-            print 'sqlite3 error'
-            continue
+        else:
+            try:
+                    dbadd(conn, c, root, dir_name, sub_dirs, files, count)
+            except OSError:
+                print "OS ERROR, I'm afraid something went wrong continuing"
+                continue
+            except UnicodeError:
+                print "UnicodeError continuing"
+                continue
+            except sqlite3.ProgrammingError:
+                print 'sqlite3 error'
+                continue
         
         
 print "complete"
 
 
+PreferencesEnglish
