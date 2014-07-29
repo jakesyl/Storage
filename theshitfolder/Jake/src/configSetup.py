@@ -1,8 +1,10 @@
 import ConfigParser
+#Sets up a config file (Doesn't work)
+#make this a for loop
 def configSetup():
     config = ConfigParser.RawConfigParser()
     config.add_section('Files')
-    for
+    #For, ALEX YOU STARTED WRITING A FOR LOOP AND NEVER FINISHED WHAT THE FUCK
     config.set('Files','file1','png')
     config.set('Files','file2','mp3')
     config.set('Files','file3','mp4')
@@ -21,5 +23,5 @@ def configSetup():
     config.set('Files','file1','cin')
     config.set('Files','file1','cpc')
 
-    with open('example.cfg', 'wb') as configfile:
-    config.write(configfile)
+    with open('config.cfg', 'wb') as configfile:
+        config.write(configfile)#ALEX THIS WASN"T EVEN FUCKING INDENTED
