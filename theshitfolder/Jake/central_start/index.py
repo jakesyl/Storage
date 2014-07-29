@@ -11,13 +11,14 @@ import counting#counts files to show percentage
 #We should probably catch more of this shit in the middle of the loop
 # a requirements.txt doesn't seem like a bad idea
 #we shouldn't keep copying and pasting logging to every new file
+#WE SHOULD MAKE AN API THAT LET'S OTHER APPLICATIONS ACCESS AND UTILIZE DATA FROM OUR SQLITE3 TABLES
 
 def index():
     #logging initalizing
     logging.basicConfig(level=logging.DEBUG)#adjust level to see different levels of stuff
     logger = logging.getLogger(__name__)
 
-    count = 1#intalize completion counter
+    count = 1#intalize completion counter 
     filecount = counting.counting()#occasionally get's commented out in a commit for testing
     conn = sqlite3.connect('database.db')#intalizing db
     conn.text_factory = unicode #what does this do?, no one knows
