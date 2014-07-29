@@ -1,35 +1,48 @@
-import sqlite3
-import os
-import engine
-import counting
-#first we should os.walk everything just for a counter so we can do file x/y uploaded
-# we should increase and decrease threads dynamically based on cpu usage, not quite sure how we can do this but i found a good python c bridge:
-#https://pythonhosted.org/pyobjc/
+import sqlite3# for local databases
+import os#For os.walk/expand user
+import logging#Avoid Printing Errors
+import engine#decides wether or not a file should be uploaded
+import counting#counts files to show percentage
+#import upload# for uploading all our files
 
-count = 1
+########BULLETIN BOARD########## put shit here
+#https://pythonhosted.org/pyobjc/
+#We should probably catch more of this shit in the middle of the loop
+#at a certain point everythings getting imported in __init__.py
+
+#logging initalzing
+logging.basicConfig(level=logging.DEBUG)#adjust level to see different levels of stuff
+logger = logging.getLogger(__name__)
+
+
+count = 1#intalize completion counter
 filecount = counting.counting()#occasionally get's commented out in a commit for testing
 conn = sqlite3.connect('database.db')#intalizing db
 conn.text_factory = unicode #what does this do?, no one knows
 c = conn.cursor()
 root=os.path.expanduser('~')#I don't know why i commented this maybe you can figure it out; change this before development
-print root
 remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev')
 
 def dbadd(conn, c, root, dir_name, sub_dirs, files,count):
-    print f + " is in " + dir_name
-    fpath = dir_name + '/' + f
+    logger.info(f + " is in " + dir_name)
+    fpath = dir_name + '/' + f #used for db/by engine
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
-    count +=1
+    count += 1
     percentage = count/filecount
     rows = c.fetchall()
 
     if (len(rows)!= 0):
-        c.execute ("DELETE FROM scan WHERE fpath = ?", (fpath,))# Here at cortex we don't do duplicates
+        c.execute ("DELETE FROM scan WHERE fpath = ?", (fpath,))#Change this when you get the chance
         
     at=os.path.getatime(os.path.join(dir_name, f))#last access time of file
     size = os.path.getsize(os.path.join(dir_name, f))
     c.execute('INSERT INTO scan (fpath, accessDate) VALUES (?,?)', (fpath,at,))# adds files to sqlite 3 table "scan"
-    engine.engine(fpath,at,size)
+    boolUpload = engine.engine(fpath,at,size)#returns a value as to wether or not this file should be uploaded
+    '''
+    if (boolUpload == True):
+        #try and catch for a shit ton of errors to (maybe)
+        upload.upload(putArgsHere)
+    '''
     conn.commit()#this might actually be c.commit idk what alex is doing
 
 for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directory, sub_dirs are subs and files....
@@ -58,17 +71,16 @@ for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directo
             try:
                     dbadd(conn, c, root, dir_name, sub_dirs, files, count)
             except OSError:
-                print "OS ERROR, I'm afraid something went wrong continuing"
+                logger.debug("OSError, continuing")
                 continue
             except UnicodeError:
-                print "UnicodeError continuing"
+                logger.debug("UnicodeError continuing")
                 continue
             except sqlite3.ProgrammingError:
-                print 'sqlite3 error'
+                logger.debug('sqlite3 error, continuing')
                 continue
         
         
-print "complete"
+print "Complete"
 
 
-PreferencesEnglish
