@@ -19,7 +19,7 @@ def index():
     logger = logging.getLogger(__name__)
 
     count = 1#intalize completion counter 
-    filecount = counting.counting()#occasionally get's commented out in a commit for testing
+    #filecount = counting.counting()#occasionally get's commented out in a commit for testing
     conn = sqlite3.connect('database.db')#intalizing db
     conn.text_factory = unicode #what does this do?, no one knows
     c = conn.cursor()
@@ -69,7 +69,7 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files,count):
     fpath = dir_name + '/' + f #used for db/by engine
     c.execute ("SELECT * FROM scan WHERE fpath = ?", (fpath,))
     count += 1.0 #Returns a float
-    percentage = count/filecount
+    #percentage = count/filecount
     rows = c.fetchall()
 
     if (len(rows)!= 0):
@@ -85,4 +85,4 @@ def dbadd(conn, c, root, dir_name, sub_dirs, files,count):
         upload.upload(putArgsHere)
     '''
     conn.commit()#this might actually be c.commit idk what alex is doing
-#index()
+index()
