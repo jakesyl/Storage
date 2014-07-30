@@ -5,14 +5,16 @@ import engine#decides wether or not a file should be uploaded
 import counting#counts files to show percentage
 #import upload# for uploading all our files
 
+                                                ########BULLETIN BOARD########## 
+#put shit here
 
-########BULLETIN BOARD########## put shit here
 #https://pythonhosted.org/pyobjc/
 #We should probably catch more of this shit in the middle of the loop
 # a requirements.txt doesn't seem like a bad idea
 #we shouldn't keep copying and pasting logging to every new file
 #WE SHOULD MAKE AN API THAT LET'S OTHER APPLICATIONS ACCESS AND UTILIZE DATA FROM OUR SQLITE3 TABLES
-
+# WHEN YOU UPDATE THIS CODE UPDATE FROM THE BULLETIN BOARD DOWN
+#blacklist these usernames https://gist.github.com/jakesyl/c1c1f24c38d6042bb04e
 
 def index():
     #logging initalizing
