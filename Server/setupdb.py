@@ -16,7 +16,7 @@ c = conn.cursor()#We have to define a connection cursor in order to execute comm
 try:
 	('''SELECT * FROM  users''')
 except:
-	c.execute('''CREATE TABLE users(username text, tableadress int,userpath)''')
+	c.execute('''CREATE TABLE users(username text, tableadress int,userpath text)''')
 	logger.info("Table filemap doesn't exsist creating it")
 
 try:
