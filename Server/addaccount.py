@@ -24,9 +24,7 @@ c = conn.cursor()#We have to define a connection cursor in order to execute comm
 c.execute("""SELECT * FROM newusers""")
 uta = c.fetchall()#uta = users to add
 
+userlist = sp.call("cut -d: -f1 /etc/passwd")
+
 for user in uta:
-	try:#THIS ISN'T GOING TO WORK I NEED TO LEARN MORE ABOUT HOW UBUNTU USERS WORK
-		os.listdir(dirta + '/users/' + user[0])#I'm pretty sure user is still an array (inside an array)
-	except OSerror:
-		try c.execute()
-	
+	if user not in userlist:#just making sure we don't overwrite someone elses stuff
