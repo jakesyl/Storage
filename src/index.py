@@ -19,6 +19,15 @@ import counting#counts files to show percentage
 #WE HAVE TO IGNORE GOOGLE DRIVE AND DROPBOX AND SIMILIAR SERVICES, I already did but idk if they're right no time to test anything
 #To remove .dirs make the return value an array, the first term being the int of the filecount, and the second being any .dotfiles
 
+'''
+Alex
+what you need to do this week:
+*Finish GUI
+*Map Every button on the GUI to at least an empty py script
+*Talk to guide about design (I know you don't know him it's fine)
+*You might also want to look at some designs
+'''
+
 def index():
     #logging initalizing
     logging.basicConfig(level=logging.INFO)#adjust level to see different levels of stuff
