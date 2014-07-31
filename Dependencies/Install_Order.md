@@ -6,4 +6,4 @@ THIS IS THE INSTALL ORDER, DO NOT INSTALL OUT OF ORDER:
 5.pycrypto
 6.pyscopg2
 7.paramiko
-8.pysftp∑
+8.pysftp
