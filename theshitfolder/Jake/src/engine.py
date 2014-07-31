@@ -1,6 +1,10 @@
 import sqlite3
 import time
 import datetime
+'''
+Cortex Storage
+Determines wether or not a file should be uploaded by means of time
+'''
 conn = sqlite3.connect('database.db')
 c = conn.cursor()
 def engine(path, times, size):
@@ -44,9 +48,4 @@ def engine(path, times, size):
             return False
     if isin ==  False:
         return False
-
-
-
-
-
 #print engine("downloads/shit/tile.txt", 1405738428, 10003)
