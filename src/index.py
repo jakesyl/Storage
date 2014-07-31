@@ -15,6 +15,9 @@ import counting#counts files to show percentage
 #WE SHOULD MAKE AN API THAT LET'S OTHER APPLICATIONS ACCESS AND UTILIZE DATA FROM OUR SQLITE3 TABLES
 # WHEN YOU UPDATE THIS CODE UPDATE FROM THE BULLETIN BOARD DOWN
 #blacklist these usernames https://gist.github.com/jakesyl/c1c1f24c38d6042bb04e
+#Alex you need to improve performance on that time function
+#WE HAVE TO IGNORE GOOGLE DRIVE AND DROPBOX AND SIMILIAR SERVICES, I already did but idk if they're right no time to test anything
+#To remove .dirs make the return value an array, the first term being the int of the filecount, and the second being any .dotfiles
 
 def index():
     #logging initalizing
@@ -26,7 +29,7 @@ def index():
     conn.text_factory = unicode #what does this do?, no one knows
     c = conn.cursor()
     root=os.path.expanduser('~')#I don't know why i commented this maybe you can figure it out; change this before development
-    remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev')
+    remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev', 'Google Drive', 'Dropbox')
 
     for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directory, sub_dirs are subs and files....
         #print '\n', dir_name
