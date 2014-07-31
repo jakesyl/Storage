@@ -1,13 +1,18 @@
-#adduser.sh#!/bin/bash
+#!/bin/bash
 # Script to add a user to Debian/Ubuntu system
- 
+
 if [ $(id -u) -ne 0 ]; then
   echo "Only root may add a user to the system" >&2
   exit 1
 else
-  read -p "Enter username : " username
-  read -s -p "Enter password : " password
- 
+  if [ $# -lt 2 ]; then
+    read -p "Enter username : " username
+    read -s -p "Enter password : " password
+  else
+    username="$1"
+    password="$2"
+  fi
+
   if /usr/bin/getent passwd "$username"; then
     echo "$username exists" >&2
     exit 2
