@@ -17,3 +17,7 @@ profile
 DerivedData##
 .idea/
 Pods
+
+#STOP UPLADING DB’s
+*.db
+*.db-journal
