@@ -1,7 +1,6 @@
 import os
 import logging
 import index
-import configSetup as config
 import Dbsetup as makedb
 import index
 
