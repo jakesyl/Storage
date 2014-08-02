@@ -20,12 +20,15 @@ def counting():
 		try:
 			i = i+1#change to i+=1 later
 			logger.info("Counted to file " + str(i))
-		for dir_name in subdirs:
-			if (dir_name[0]==".")
-				cnt_and_rd.append(dir_name)
+			for adir in sub_dirs:
+				if (adir[0]=="."):
+					logger.info("We found a directory to remove!")
+					fpath = adir + '/' + f
+					cnt_and_rd.append(fpath)
 		except BaseException:#Nothing could go wrong, right?
 			logger.debug("An Error Occured, Continuing")
 			continue
 	cnt_and_rd.insert(1,i)
 	return cnt_and_rdi #returns the count
 	#stop = timeit.default_timer()
+#counting()#for testing
