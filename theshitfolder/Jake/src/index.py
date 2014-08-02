@@ -18,6 +18,7 @@ import counting#counts files to show percentage
 #Alex you need to improve performance on that time function
 #WE HAVE TO IGNORE GOOGLE DRIVE AND DROPBOX AND SIMILIAR SERVICES, I already did but idk if they're right no time to test anything
 #To remove .dirs make the return value an array, the first term being the int of the filecount, and the second being any .dotfiles
+#Look at dependencies folder for the install order
 
 def index():
     #logging initalizing
