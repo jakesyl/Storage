@@ -3,7 +3,6 @@ import logging
 
 
 #import timeit
-#TODO add a shit ton more threads
 #just counts files were indexing
 def counting():
 	cnt_and_rd = []
