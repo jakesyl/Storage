@@ -22,7 +22,7 @@ def counting():
 			for adir in sub_dirs:
 				if (adir[0]=="."):
 					logger.info("We found a directory to remove!")
-					fpath = adir + '/' + f
+					fpath = adir + '/' + f#adds dir path
 					cnt_and_rd.append(fpath)
 		except BaseException:#Nothing could go wrong, right?
 			logger.debug("An Error Occured, Continuing")
