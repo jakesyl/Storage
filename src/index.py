@@ -18,28 +18,26 @@ import counting#counts files to show percentage
 #Alex you need to improve performance on that time function
 #WE HAVE TO IGNORE GOOGLE DRIVE AND DROPBOX AND SIMILIAR SERVICES, I already did but idk if they're right no time to test anything
 #To remove .dirs make the return value an array, the first term being the int of the filecount, and the second being any .dotfiles
-
-'''
-Alex
-what you need to do this week:
-*Finish GUI
-*Map Every button on the GUI to at least an empty py script
-*Talk to guide about design (I know you don't know him it's fine)
-*You might also want to look at some designs
-'''
+#Look at dependencies folder for the install order
+#Alex if it's still in here remove your method for getting rid of . directories
+#Percentage will not work with ignoring files, we need to figure out a way to do percentage
+#Okay so the thing doesn't actually work (the script to remove, but it doesn't throw an error either so just leave it)
 
 def index():
     #logging initalizing
     logging.basicConfig(level=logging.INFO)#adjust level to see different levels of stuff
     logger = logging.getLogger(__name__)
     count = 1#intalize completion counter 
-    filecount = counting.counting()#occasionally get's commented out in a commit for testing
+    counterlist = counting.counting()#get's the list of dirs to be removed in addition to the number of files
+    filecount = counterlist[0]#occasionally get's commented out in a commit for testing, 
+    remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev', 'Google Drive', 'Dropbox')
+    del counterlist[0] #removes file number
+    for directory in counterlist:
+        remove_dirs.append(directory)#add's directories to the remove dirs list
     conn = sqlite3.connect('database.db')#intalizing db
     conn.text_factory = unicode #what does this do?, no one knows
     c = conn.cursor()
     root=os.path.expanduser('~')#I don't know why i commented this maybe you can figure it out; change this before development
-    remove_dirs = ('Applications','Library','System','Developer','bin', 'cores','etc','Network','opt','private','dev', 'Google Drive', 'Dropbox')
-
     for dir_name, sub_dirs, files in os.walk(root): #dir_name is the current directory, sub_dirs are subs and files....
         #print '\n', dir_name
         # Make the subdirectory names stand out with / still not 100% sure what this line actually does but, hey it works right?
