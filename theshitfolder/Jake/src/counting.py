@@ -3,7 +3,7 @@ import logging
 
 
 #import timeit
-#just counts files were indexing
+#just counts files were indexing in addition to making a list of directories to remove
 def counting():
 	cnt_and_rd = []
 	#Log Here
@@ -28,6 +28,6 @@ def counting():
 			logger.debug("An Error Occured, Continuing")
 			continue
 	cnt_and_rd.insert(1,i)
-	return cnt_and_rdi #returns the count
+	return cnt_and_rd #returns the count
 	#stop = timeit.default_timer()
 #counting()#for testing
