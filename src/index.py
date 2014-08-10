@@ -22,6 +22,9 @@ import counting#counts files to show percentage
 #Alex if it's still in here remove your method for getting rid of . directories
 #Percentage will not work with ignoring files, we need to figure out a way to do percentage
 #Okay so the thing doesn't actually work (the script to remove, but it doesn't throw an error either so just leave it)
+#note to self make the dir where the files are actually stored now called files
+#Make sure that ubuntu counts memory usage frequently too
+#figure out a way to get rid opf ssh
 
 def index():
     #logging initalizing
