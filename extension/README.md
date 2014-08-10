@@ -1,4 +1,0 @@
-cortex
-======
-
-A cool thing
