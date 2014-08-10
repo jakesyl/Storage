@@ -1,5 +1,4 @@
 Cortex Storage
 =============
 
-A Dynamic Local and Cloud based python Storage Application, now celebrating 500th commit by Jake Sylvestre.
-
+A Dynamic Local and Cloud based Storage Application utilizing local network synchronization.
