@@ -21,3 +21,4 @@ Pods
 #STOP UPLADING DB’s 
 *.db
 *.db-journal
+uncompressed_extensions/
