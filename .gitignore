@@ -22,3 +22,11 @@ Pods
 *.db
 *.db-journal
 uncompressed_extensions/
+
+#generic uploads ignore
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
