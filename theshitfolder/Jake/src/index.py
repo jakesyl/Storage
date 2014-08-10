@@ -22,15 +22,10 @@ import counting#counts files to show percentage
 #Alex if it's still in here remove your method for getting rid of . directories
 #Percentage will not work with ignoring files, we need to figure out a way to do percentage
 #Okay so the thing doesn't actually work (the script to remove, but it doesn't throw an error either so just leave it)
+#Monitor proccceses and dynamically add photos and videos to aplpicatiosn that need them
+#On install and somewhat frequently (or during install) get a list applications so we can check our online db to see if they require photos and/or videos
 
-'''
-Alex
-what you need to do this week:
-*Finish GUI
-*Map Every button on the GUI to at least an empty py script
-*Talk to guide about design (I know you don't know him it's fine)
-*You might also want to look at some designs
-'''
+
 def index():
     #logging initalizing
     logging.basicConfig(level=logging.INFO)#adjust level to see different levels of stuff
