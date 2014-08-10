@@ -30,3 +30,6 @@ uncompressed_extensions/
 *.DS_Store
 *.swp
 *.out
+
+#Rails git ignore
+#rails specific
