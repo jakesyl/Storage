@@ -33,3 +33,9 @@ uncompressed_extensions/
 
 #Rails git ignore
 #rails specific
+log/*
+tmp/*
+
+#For my App
+#java specific
+*.class
