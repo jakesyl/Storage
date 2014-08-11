@@ -1,6 +1,8 @@
 																							Bulletin Board
 
 General
+
+Applicable to both:
 *figure out a way to get rid opf ssh
 *Make sure that ubuntu counts memory usage frequently too
 *note to self make the dir where the files are actually stored now called files
