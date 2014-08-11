@@ -7,7 +7,7 @@ import counting#counts files to show percentage
 
                                                 ########BULLETIN BOARD########## 
 #put shit here
-
+#http://cs.berry.edu/~nhamid/p2p/filer-python.html
 #https://pythonhosted.org/pyobjc/
 #We should probably catch more of this shit in the middle of the loop
 # a requirements.txt doesn't seem like a bad idea
