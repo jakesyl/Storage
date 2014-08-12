@@ -1,0 +1,3 @@
+=======Plan for modules in personal and proffesional applications in the server========
+Personal Application
+The personal application will hae a gui that shows the percentage of files being uploaded, a start and stop upload button, an option for managing what's being uploaded and a seperate application for video and audio streaming and will be a flat interface and a section to add or remove file extensions to upload or files to upload a section to cusotmize how long files have to not have been sued a visualization of how much hard dribve space is actually being saved and a way to upgrade to premiu including data usage, likely a premium trial gui is meant to closeley resemble that of an antivirus platform
