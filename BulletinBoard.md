@@ -26,3 +26,10 @@ Applicable to both:
 Personal
 
 Enterprise
+
+Module Chart:
+
+1. Windows Servfer Setup
+2. SQL Setup initial db no table/decide on a type of sql
+3. Storage mechanism on the server, where... compression?
+4.
