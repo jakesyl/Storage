@@ -14,4 +14,4 @@ def uploadfile(ahost, ausername, apassword,remotepath,localpath):
 	except Exception, e: # will catch later
 		print str(e)
 
-uploadfile('2601:c:3480:379:aa20:66ff:fe35:3e73', 'jcortex', 'jake1998', '/home/jcortex', '/Users/Jake_Sylvestre/Documents/x.py')
+uploadfile('2601:c:3480:379:c523:346c:2c10:59aa', 'jcortex', 'jake1998', '/home/jcortex', '/Users/Jake_Sylvestre/Documents/x.py')
