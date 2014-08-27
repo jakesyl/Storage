@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/python
 
 '''
 Creates database and subsequent tables on users computer
