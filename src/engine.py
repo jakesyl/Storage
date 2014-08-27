@@ -21,7 +21,6 @@ def engine(path, times, size):
     #checks for proper extetion
     for row in c.execute('SELECT * FROM extentions WHERE ext=?', extention):
         isin = True
-        #print row
         if len(row) != 0:
             # get readable date from file
             date = datetime.datetime.fromtimestamp(int(times)).strftime('%Y-%m-%d %H:%M:%S')
