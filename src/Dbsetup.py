@@ -1,3 +1,5 @@
+#!/usr/bin/env
+
 '''
 Creates database and subsequent tables on users computer
 '''
