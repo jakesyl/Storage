@@ -1,4 +1,5 @@
 #/usr/bin/python
+
 '''
 Cortex Storage
 Determines wether or not a file should be uploaded by means of time
