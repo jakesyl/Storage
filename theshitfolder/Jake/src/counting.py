@@ -1,9 +1,13 @@
+#/usr/bin/python
+
+'''
+Cortex Storage
+Determines wether or not a file should be uploaded by means of time
+'''
 import os
 import logging
-
-
 #import timeit
-#just counts files were indexing in addition to making a list of directories to remove
+
 def counting():
 	cnt_and_rd = []
 	#Log Here
