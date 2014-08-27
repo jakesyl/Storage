@@ -1,23 +1,28 @@
+#/usr/bin/python
+"""
+Cortex Storage
+Counts the number of files and numbers and returns the description
+"""
+
 import os
 import logging
-
-
 #import timeit
-#just counts files were indexing in addition to making a list of directories to remove
+
 def counting():
-	cnt_and_rd = []
-	#Log Here
+	cnt_and_rd = []#Counting and Reading are defined here
+	
+	#Logging Setup
 	logging.basicConfig(level=logging.INFO)
 	logger = logging.getLogger(__name__)
-	
-	root=os.path.expanduser('~')#change this before development
-	#print "start"
-	i=1
+
+	root=os.path.expanduser('~')
+
+	counter =1
 	#start = timeit.default_timer()
 	for dir_name, sub_dirs, files in os.walk(root):
-		#print i
+	#print i
 		try:
-			i = i+1#change to i+=1 later
+			counter += 1#change to i+=1 later
 			logger.info("Counted to file " + str(i))
 			for adir in sub_dirs:
 				if (adir[0]=="."):
@@ -26,8 +31,8 @@ def counting():
 					cnt_and_rd.append(fpath)
 		except BaseException:#Nothing could go wrong, right?
 			logger.debug("An Error Occured, Continuing")
-			continue
-	cnt_and_rd.insert(1,i)
+				continue
+	cnt_and_rd.insert(1,counter)
 	return cnt_and_rd #returns the count
 	#stop = timeit.default_timer()
-#counting()#for testing
+counting()#for testing
