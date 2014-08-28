@@ -1,30 +1,16 @@
+#!/usr/bin/python
+
+'''
+Cortex Storage
+Determines wether or not a file should be uploaded by means of time
+'''
+
 import sqlite3# for local databases
 import os#For os.walk/expand user
 import logging#Avoid Printing Errors
 import engine#decides wether or not a file should be uploaded
 import counting#counts files to show percentage
 #import upload# for uploading all our files
-
-                                                ########BULLETIN BOARD########## 
-#put shit here
-
-#https://pythonhosted.org/pyobjc/
-#We should probably catch more of this shit in the middle of the loop
-# a requirements.txt doesn't seem like a bad idea
-#we shouldn't keep copying and pasting logging to every new file
-#WE SHOULD MAKE AN API THAT LET'S OTHER APPLICATIONS ACCESS AND UTILIZE DATA FROM OUR SQLITE3 TABLES
-# WHEN YOU UPDATE THIS CODE UPDATE FROM THE BULLETIN BOARD DOWN
-#blacklist these usernames https://gist.github.com/jakesyl/c1c1f24c38d6042bb04e
-#Alex you need to improve performance on that time function
-#WE HAVE TO IGNORE GOOGLE DRIVE AND DROPBOX AND SIMILIAR SERVICES, I already did but idk if they're right no time to test anything
-#To remove .dirs make the return value an array, the first term being the int of the filecount, and the second being any .dotfiles
-#Look at dependencies folder for the install order
-#Alex if it's still in here remove your method for getting rid of . directories
-#Percentage will not work with ignoring files, we need to figure out a way to do percentage
-#Okay so the thing doesn't actually work (the script to remove, but it doesn't throw an error either so just leave it)
-#Monitor proccceses and dynamically add photos and videos to aplpicatiosn that need them
-#On install and somewhat frequently (or during install) get a list applications so we can check our online db to see if they require photos and/or videos
-
 
 def index():
     #logging initalizing
