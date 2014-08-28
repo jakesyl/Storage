@@ -20,7 +20,7 @@ def index():
     count = 1#intalize completion counter
     counterlist = counting.counting()#Get directories to remove/file count
     filecount = counterlist[0] #file count is [0] else is dir to remove
-
+    remove_dirs = []
     del counterlist[0] #removes file number
     for directory in counterlist:
         remove_dirs.append(directory)#add's directories to the remove dirs list
@@ -29,7 +29,6 @@ def index():
     c = conn.cursor()
     root=os.path.expanduser('~')#Start at userdir
     for dir_name, sub_dirs, files in os.walk(root):
-
         files.sort()
         if (dir_name==root): #ignore these directories
             for dname in remove_dirs:
