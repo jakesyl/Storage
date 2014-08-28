@@ -1,3 +1,7 @@
+''' jake likes to break shit '''
+
+
+
 import sqlite3
 import time
 import datetime
