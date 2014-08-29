@@ -1,14 +1,13 @@
 #!/usr/bin/python
 
-'''
-Cortex Storage
-Determines wether or not a file should be uploaded by means of time
-'''
 
 import sqlite3
 import time
 import datetime
-
+'''
+Cortex Storage
+Determines wether or not a file should be uploaded by means of time
+'''
 conn = sqlite3.connect('database.db')
 c = conn.cursor()
 def engine(path, times, size):
@@ -22,6 +21,7 @@ def engine(path, times, size):
     #checks for proper extetion
     for row in c.execute('SELECT * FROM extentions WHERE ext=?', extention):
         isin = True
+        #print row
         if len(row) != 0:
             # get readable date from file
             date = datetime.datetime.fromtimestamp(int(times)).strftime('%Y-%m-%d %H:%M:%S')
