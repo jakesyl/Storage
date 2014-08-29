@@ -14,4 +14,4 @@ def uploadfile(ahost, ausername, apassword,remotepath,localpath):
 	except Exception, e: # will catch later
 		print str(e)
 
-uploadfile('localhost', 'Jake_Sylvestre', 'jake1998', 'Documents', '/Users/Jake_Sylvestre/Documents/x.py')
+#uploadfile('localhost', 'Jake_Sylvestre', 'jake1998', 'Documents', '/Users/Jake_Sylvestre/Documents/x.py')#local ybut test
