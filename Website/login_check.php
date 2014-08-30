@@ -1,10 +1,12 @@
 <?php
 //TODO switch to postgres
 $host="localhost"; // Host name 
-$username=""; // Mysql username 
-$password=""; // Mysql password 
-$db_name="test"; // Database name 
+$username="jakesyl"; // username 
+$password="jake1998"; // password 
+$db_name="test"; // DB name 
 $tbl_name="members"; // Table name 
+
+$conn_string = "host= " + localhost + "dbname= " + db_name + " user= " + username + " password = " + password;
 
 // Connect to server and select databse.
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
