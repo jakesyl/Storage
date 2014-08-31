@@ -57,12 +57,6 @@ def makedb():
     #extenstions
         c.execute('''CREATE TABLE extentions(ext text, count integer)''')
         logger.info("Table extenstions doesn't exsist creating it")
-
-
-
-
-
-
     extentions = ("png", "jpg", "jpeg", "jfif", "jpeg2000", "ani","anim","apng","art","bmp","psd","bsave","cal","cin","cpc","cpt","dpx","ecw","exr","fits","flic","fpx","gif","hdri","hevc","icer","icns","ico","cur","ics","ilbm","jbig","jbig2","jng","jpeg-ls","jpegxr","mng","miff","pam","pbm","pgm","ppm","pnm","pcx","pgf","pictor","psb","psp","qtvr","ras","rbe","jpeg-hdr","sgi","tga","wbmp","webp","xbm","xcf","xpm","xwd","ciff","dng","ai","cdr","cgm","dxf","eva","emf","gerber","hvif","iges","pgml","svg","vml","wmf","xar","cdf","djvu","eps","pdf","pict","ps","swf","xaml","mpg","mov","wmv","rm","mp4","mpeg","mpg","mpe","mpeg","mpeg-1","mpeg-2","m1s","mpa","mp2","m2a","mp2v","m2v","m2s","avi","qt","asf","asx","wma","mkv","3gp","act","aiff","aac","amr","au","awb","dct","dss","dvf","flac","gsm","iklax","ivs","m4a","m4p","mmf","mp3","mpc","msv","ogg","oga","opus","ra","rm","raw","tta","vox","wave","wma","wv")#Put this into a seperate file
     count = 0
     for ext in extentions:
