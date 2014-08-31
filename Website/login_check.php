@@ -9,9 +9,7 @@ $tbl_name="members"; // Table name
 $conn_string = "host= " + localhost + "dbname= " + db_name + " user= " + username + " password = " + password;
 
 // Connect to server and select databse.
-mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-mysql_select_db("$db_name")or die("cannot select DB");
-
+pg_connect($conn_string) or die "can't connect";
 // username and password sent from form 
 $myusername=$_POST['myusername']; 
 $mypassword=$_POST['mypassword']; 
