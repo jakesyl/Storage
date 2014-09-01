@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-//TODO migrate to postgres
-=======
-//TODO switch to postgres
->>>>>>> 58777a91ddd69311805ed7e0230d372a6d4520ed
+
 $host="localhost"; // Host name 
 $username="jakesyl"; // username 
 $password="jake1998"; // password 
