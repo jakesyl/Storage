@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'cortex_storage' target in the 'cortex_storage' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif
