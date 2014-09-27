@@ -6,7 +6,7 @@ logging.basicConfig(level=logging.INFO)#adjust level to see different levels of 
 logger = logging.getLogger(__name__)
 
 try:
-	conn = pgsql.connect("dbname='users' user='postgres' host='localhost' password='jake1998'")
+	conn = pgsql.connect("dbname='users' user='postgres' host='localhost' password='pass'")
 except:
     logger.info("I am unable to connect to the database")
 
