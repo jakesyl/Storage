@@ -2,7 +2,7 @@
 
 $host="localhost"; // Host name 
 $username="jakesyl"; // username 
-$password="jake1998"; // password 
+$password="pass"; // password 
 $db_name="test"; // DB name 
 $tbl_name="members"; // Table name 
 
