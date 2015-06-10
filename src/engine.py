@@ -1,13 +1,13 @@
 #!/usr/bin/python
-
-
 import sqlite3
 import time
 import datetime
+
 '''
 Cortex Storage
 Determines wether or not a file should be uploaded by means of time
 '''
+
 conn = sqlite3.connect('database.db')
 c = conn.cursor()
 def engine(path, times, size):
